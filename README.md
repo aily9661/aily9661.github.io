@@ -5,8 +5,8 @@
 - CSS
 - JS
 ## In-Class Assignmnets
-- Weekly Assignments
-- WA1
-- WA2
-- ica3a
-- ica3b
+- <a href="/ica/ica3a.html">ica3a</a>
+- <a href="/ica/ica3b.html">ica3b</a>
+## Weekly Assignments
+- <a href="/wa/wa1.html">wa1</a>
+- <a href="/wa/wa2.html">wa2</a>
