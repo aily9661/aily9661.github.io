@@ -8,4 +8,5 @@
 - Weekly Assignments
 - WA1
 - WA2
-
+- ica3a
+- ica3b
