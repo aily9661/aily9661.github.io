@@ -1,7 +1,7 @@
 # aily9661.github.io
 # ATLS-2000 Web
 ## Projects
-- <a href="/html-midterm/">html-midterm repo</a> <a href="/html-midterm/page5.html">html-midterm page 5</a>
+- <a href="/html-midterm/">html-midterm repo</a> <a href="http://aily9661.github.io/html-midterm/page5.html">html-midterm page 5</a>
 - CSS
 - JS
 ## In-Class Assignmnets
