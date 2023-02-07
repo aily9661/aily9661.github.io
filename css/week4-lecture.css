@@ -6,13 +6,13 @@ p{
     color: red;
 }
 
-h1 {
+#title {
     font-size: 500%;
 }
 
 a:link{
     font-size: 100%;
-    color: aqua;
+    color: burlywood;
 }
 
 a:hover{
