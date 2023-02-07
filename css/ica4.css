@@ -38,6 +38,6 @@ body {
 
   ul {
     background-color: #eeeeee;
-    border: solid 5px purple;
-    padding: 5% 5%;
+    border: 5px solid purple;
+    padding: 5%;
   }

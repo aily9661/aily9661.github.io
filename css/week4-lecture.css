@@ -2,7 +2,7 @@ html {
     background-color: aqua;
 }
 
-p{
+.first{
     color: red;
 }
 
@@ -18,4 +18,8 @@ a:link{
 a:hover{
     font-size: 200%;
     color: greenyellow;
+}
+
+.div {
+    background-color: chartreuse;
 }
