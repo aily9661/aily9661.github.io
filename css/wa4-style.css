@@ -1,0 +1,69 @@
+/* General page styles */
+body {
+    margin: 0;
+  }
+  
+  html {
+    font-family: 'Helvetica neue', Arial, 'sans serif';
+    font-size: 10px;
+    background-color: #ccc;
+  }
+
+  h2, p {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.25em;
+    line-height: 1em;
+    padding: 0.3em;
+  }
+
+  /* General card style elements */ 
+  .card {
+    width: 35em;
+    height: 17em;
+    margin: 5em auto;
+    background-color: red;
+    border: 0.2em solid black;
+    border-radius: 1.5em;
+  }
+  
+
+  /* Header footer attributes */
+  .card_header {
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(255, 255, 255, 0));
+    border-radius: 1.5em 1.5em 0 0;
+  }
+
+  .card_body{
+    color: white;
+    padding: 0.3em;
+    line-height: 1.2em;
+    font-size: 0.8375em;
+  }
+  
+  .card_footer {
+    background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), rgba(0,0,0,0.1));
+    border-radius: 0 0 1.5em 1.5em;
+    font-size: 0.9375em;
+    line-height: 1.25em;
+    padding: 0.3em;
+  }
+
+  .card_header, .card_footer{
+    height: 3.125em;
+    content: 1.875em;
+    padding: 0.675em, 0.675em, 0.675em, 0.675em;
+  }
+
+  /* Image attributes */
+  .card_article_img {
+    max-height: 100%;
+    float: right;
+  }
+
+  article {
+    height: 7.5em;
+    background-color: rgba(0,0,0,0.1);
+  }
