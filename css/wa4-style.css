@@ -22,7 +22,7 @@ body {
   /* General card style elements */ 
   .card {
     width: 35em;
-    height: 17em;
+    height: 22em;
     margin: 5em auto;
     background-color: red;
     border: 0.2em solid black;
@@ -31,7 +31,7 @@ body {
 
   .aidan_card {
     width: 35em;
-    height: 17em;
+    height: 22em;
     margin: 5em auto;
     background-color: aquamarine;
     border: 0.2em solid black;
@@ -40,39 +40,62 @@ body {
   
 
   /* Header footer attributes */
-  .card_header {
+  .card header {
     background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(255, 255, 255, 0));
     border-radius: 1.5em 1.5em 0 0;
   }
-
-  .card_body{
-    color: white;
-    padding: 0.3em;
-    line-height: 1.2em;
-    font-size: 0.8375em;
-  }
   
-  .card_footer {
+  .card footer {
     background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), rgba(0,0,0,0.1));
     border-radius: 0 0 1.5em 1.5em;
     font-size: 1.5em;
-    line-height: 1.25em;
+    line-height: 1em;
     padding: 0.3em;
   }
 
-  .card_header, .card_footer{
+  .card header, .card footer{
     height: 3.5em;
-    content: 1.875em;
+    content: 5.875em;
     padding: 0.675em, 0.675em, 0.675em, 0.675em;
   }
 
   /* Image attributes */
-  .card_article_img {
+  .card article img {
     max-height: 100%;
     float: right;
   }
 
   article {
-    height: 7.5em;
+    height: 10.5em;
     background-color: rgba(0,0,0,0.1);
+    color: white;
+    padding: 0.3em;
+    line-height: 1.5em;
+    font-size: 0.8375em;
+  }
+
+  /* Header footer attributes */
+  .aidan_card header {
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(255, 255, 255, 0));
+    border-radius: 1.5em 1.5em 0 0;
+  }
+  
+  .aidan_card footer {
+    background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), rgba(0,0,0,0.1));
+    border-radius: 0 0 1.5em 1.5em;
+    font-size: 1.5em;
+    line-height: 1em;
+    padding: 0.3em;
+  }
+
+  .aidan_card header, .aidan_card footer{
+    height: 3.5em;
+    content: 5.875em;
+    padding: 0.675em, 0.675em, 0.675em, 0.675em;
+  }
+
+  /* Image attributes */
+  .aidan_card article img {
+    max-height: 100%;
+    float: right;
   }
