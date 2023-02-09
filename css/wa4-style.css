@@ -66,12 +66,12 @@ body {
   }
 
   article {
-    height: 10.5em;
+    height: 13em;
     background-color: rgba(0,0,0,0.1);
     color: white;
     padding: 0.3em;
-    line-height: 1.5em;
-    font-size: 0.8375em;
+    line-height: 1.7em;
+    font-size: 0.9375em;
   }
 
   /* Header footer attributes */
