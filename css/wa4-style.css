@@ -49,7 +49,7 @@ body {
     background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), rgba(0,0,0,0.1));
     border-radius: 0 0 1.5em 1.5em;
     font-size: 1.5em;
-    line-height: 1em;
+    line-height: 1.2em;
     padding: 0.3em;
   }
 
@@ -84,7 +84,7 @@ body {
     background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), rgba(0,0,0,0.1));
     border-radius: 0 0 1.5em 1.5em;
     font-size: 1.5em;
-    line-height: 1em;
+    line-height: 1.2em;
     padding: 0.3em;
   }
 
