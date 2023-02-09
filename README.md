@@ -12,3 +12,4 @@
 - <a href="/wa/wa1.html">wa1 repo</a> • <a href="http://aily9661.github.io/wa/wa1.html">wa1 page</a>
 - <a href="/wa/wa2.html">wa2 repo</a> • <a href="http://aily9661.github.io/wa/wa2.html">wa2 page</a>
 - <a href="/wa/wa3.html">wa3 repo</a> • <a href="http://aily9661.github.io/wa/wa3.html">wa3 page</a>
+- <a href="/wa/wa4.html">wa4 repo</a> • <a href="http://aily9661.github.io/wa/wa4.html">wa4 page</a> • <a href="/css/wa4-style.css">wa4 css repo</a>
