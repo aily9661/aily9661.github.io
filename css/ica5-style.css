@@ -14,7 +14,7 @@
   body {
     margin: 0;
     background: white;
-    border-bottom: 1m solid red;
+    border-bottom: 1mm solid red;
     background-image: linear-gradient(rgba(255,255,255,0) 70%, rgba(72, 64, 64, 0.2));
     width: 210mm;
   }
