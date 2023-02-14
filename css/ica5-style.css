@@ -14,12 +14,13 @@
   body {
     margin: 0;
     background: white;
-    border-bottom: 2px solid red;
+    border-bottom: 1m solid red;
     background-image: linear-gradient(rgba(255,255,255,0) 70%, rgba(72, 64, 64, 0.2));
+    width: 210mm;
   }
   
   article {
-    border-top: 2px solid red;
+    border-top: 1mm solid red;
     background-image: linear-gradient(rgba(43, 38, 38, 0.3), rgba(255,255,255,0) 30%);
     width: 210mm;
     height: 297mm;
