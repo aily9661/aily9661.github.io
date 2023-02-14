@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+    background-color: white;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: white;
+    border-bottom: 2px solid red;
+    background-image: linear-gradient(rgba(255,255,255,0) 70%, rgba(72, 64, 64, 0.2));
+  }
+  
+  article {
+    border-top: 2px solid red;
+    background-image: linear-gradient(rgba(43, 38, 38, 0.3), rgba(255,255,255,0) 30%);
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  address {
+    position: absolute;
+    bottom: -20mm;
+    right: 80mm;
+  }
+  
+  h1 {
+    background: url(/img/ica5/logo.png);
+    filter: drop-shadow(2px 2px 2px #373636);
+    position: absolute;
+    top: 12mm;
+    left: 20mm;
+    width: 128px;
+    height: 128px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 44px 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+  /* Your CSS below here */
