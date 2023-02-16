@@ -11,7 +11,25 @@ body, html {
     background-size: cover;
 }
 
-.logo {
-    position: left;
+.scores {
+    width: 50px;
+    height: 25px;
+    border: 0.2em solid rgb(147, 147, 147);
+    border-radius: 1.5em;
+    position: static;
+    padding: 15px;
     margin: 5px;
+}
+
+#scoreskc {
+    background-color: rgb(255, 0, 0);
+}
+
+#scoresphi {
+    background-color: rgb(32, 89, 48);
+}
+
+.logo {
+    float: right;
+    padding: 15px;
 }
