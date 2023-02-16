@@ -16,9 +16,10 @@ body, html {
     height: 25px;
     border: 0.2em solid rgb(147, 147, 147);
     border-radius: 1.5em;
-    position: static;
     padding: 15px;
-    margin: 5px;
+    margin: 10px;
+    float: left;
+    text-align: center;
 }
 
 #scoreskc {
