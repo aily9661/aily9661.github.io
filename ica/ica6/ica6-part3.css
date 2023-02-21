@@ -13,7 +13,7 @@
 }
 
 @media (min-width: 800px) {
-    #narrowScreen {
+    #wideScreen {
         background-color: lightblue;
     }
 }
