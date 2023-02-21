@@ -9,6 +9,7 @@
 - <a href="/ica/ica3b-part2/ica3b.html">ica3b repo</a> • <a href="http://aily9661.github.io/ica/ica3b-part2/ica3b.html">ica3b page</a>
 - <a href="/ica/ica4.html">ica4 repo</a> • <a href="http://aily9661.github.io/ica/ica4.html">ica4 page</a> • <a href="/css/ica4.css">ica4 css repo</a>
 - <a href="/ica/ica5.html">ica5 repo</a> • <a href="http://aily9661.github.io/ica/ica5.html">ica5 page</a> • <a href="/css/ica5-style.css">ica5 css repo</a>
+- <a href="/ica/ica6.html">ica6 repo</a> • <a href="http://aily9661.github.io/ica/ica6/ica6-part1.html">ica6-part1 page</a>
 ## Weekly Assignments
 - <a href="/wa/wa1.html">wa1 repo</a> • <a href="http://aily9661.github.io/wa/wa1.html">wa1 page</a>
 - <a href="/wa/wa2.html">wa2 repo</a> • <a href="http://aily9661.github.io/wa/wa2.html">wa2 page</a>

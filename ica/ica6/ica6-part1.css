@@ -1,0 +1,33 @@
+body {
+    background-color: beige;
+}
+
+#box1 {
+    border-style:solid;
+    width: 40vw;
+    height: 33vh;
+    border-color:rgba(20, 250, 173,10);
+    border-width: 3px;
+    border-radius:10px;
+    background-color: mediumseagreen;
+    position:relative;
+}
+
+#box2 {
+    width: 73vw;
+    height: 33vh;
+    border-style: solid;
+    border-radius:3px;
+    border-color:purple;
+    position:relative;
+    left: 40vw;
+    background-color: mediumvioletred;
+}
+
+#box3 {
+    position: sticky;
+    width: 73vw;
+    height: 175vh;
+    border-radius: 10px;
+    background-color: orangered;
+}
