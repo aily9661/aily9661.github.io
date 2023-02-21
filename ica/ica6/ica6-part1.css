@@ -18,9 +18,9 @@ body {
     height: 33vh;
     border-style: solid;
     border-radius:3px;
+    left: 55vw;
     border-color:purple;
-    position:relative;
-    left: 40vw;
+    position: relative;
     background-color: mediumvioletred;
 }
 
@@ -30,4 +30,21 @@ body {
     height: 175vh;
     border-radius: 10px;
     background-color: orangered;
+}
+
+#text1 {
+    left: 120%;
+    position: relative;
+}
+
+#text2 {
+    bottom: 0%;
+    left: 0%;
+    position: absolute;
+}
+
+#text3 {
+    position: sticky;
+    top: 0%;
+    font-size: 50px;
 }

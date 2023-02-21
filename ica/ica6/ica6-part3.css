@@ -2,14 +2,38 @@
     background-color: green;
 }
 
+@media (max-width: 600px) {
+    #narrowScreen {
+        background-color: purple;
+    }
+}
+
 #wideScreen {
     background-color: red;
+}
+
+@media (min-width: 800px) {
+    #narrowScreen {
+        background-color: lightblue;
+    }
 }
 
 #shortScreen {
     background-color: turquoise;
 }
 
+@media (max-height: 500px) {
+    #shortScreen {
+        background-color: yellow;
+    }
+}
+
 #tallScreen {
     background-color: lavender;
+}
+
+@media (min-height: 800px) {
+    #tallScreen {
+        background-color: orange;
+    }
 }
