@@ -14,7 +14,7 @@ body{
     height:20vh;
     position: relative;
     background-color: orangered;
-    animation: 5s infinite alternate box2move;
+    animation: 8s infinite alternate box2move;
 }
 
 @keyframes box2move{
@@ -25,11 +25,15 @@ body{
     50% {
         margin-left: 75%;
         margin-top: 10%;
+        background-color: khaki;
+        color: khaki;
     }
 
     to {
         margin-left: 0%;
-        margin-top: 20%
+        margin-top: 20%;
+        background-color: rgb(17, 96, 17);
+        color: white;
     }
 }
 
