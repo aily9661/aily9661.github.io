@@ -14,7 +14,7 @@ body{
     height:20vh;
     position: relative;
     background-color: orangered;
-    animation: 8s infinite alternate box2move;
+    animation: box2move 8s infinite alternate;
 }
 
 @keyframes box2move{
