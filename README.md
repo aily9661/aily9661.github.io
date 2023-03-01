@@ -19,3 +19,4 @@
 - <a href="/wa/wa4.html">wa4 repo</a> • <a href="http://aily9661.github.io/wa/wa4.html">wa4 page</a> • <a href="/css/wa4-style.css">wa4 css repo</a>
 - <a href="/wa/wa5.html">wa5 repo</a> • <a href="http://aily9661.github.io/wa/wa5.html">wa5 page</a> • <a href="/css/wa5-style.css">wa5 css repo</a>
 - <a href="/wa/wa6/wa6.html">wa6 repo</a> • <a href="http://aily9661.github.io/wa/wa6/wa6.html">wa6 page</a> • <a href="/wa/wa6/style.css">wa6 css repo</a>
+- <a href="/wa/wa7.html">wa7 repo</a> • <a href="http://aily9661.github.io/wa/wa7.html">wa7 page</a> • <a href="/css/wa7-style.css">wa7 css repo</a>
