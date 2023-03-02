@@ -1,4 +1,4 @@
-.topcard{
+/*.topcard{
     display:flex;
     height:20vh;
     background-color: rgb(209, 162, 254);
@@ -7,4 +7,16 @@
 .topcard img{
     display: -webkit-box;
     margin-left: 80%;
+}*/
+
+body{
+    background-color: rgb(255, 248, 237);
+    margin: 1%;
+    border: 100px solid rgb(0, 0, 0);;
 }
+
+article{
+    border: 250px solid rgb(220, 220, 220);
+    border-style: outset;
+}
+
