@@ -1,5 +1,10 @@
-#topcard{
+.topcard{
     display:flex;
     height:20vh;
     background-color: rgb(209, 162, 254);
+}
+
+.topcard img{
+    display: -webkit-box;
+    margin-left: 80%;
 }
