@@ -20,18 +20,17 @@ body{
 
 .topcardright img{
     margin: 0.5%;
-    width: 35%;
     position: absolute;
     float: right;
     right: 0;
     height: 18.2vh;
-    width: 18%;
+    width: 16vw;
 }
 
 .topcardleft p{
-    font-size: 100px;
-    margin-top:20px;
-    margin-left:11.5px;
+    font-size:7vw;
+    margin-top:2vh;
+    margin-left:1vw;
     white-space:nowrap;
 }
 
