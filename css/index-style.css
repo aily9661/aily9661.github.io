@@ -35,7 +35,7 @@ body{
     white-space:nowrap;
 }
 
-.topcardright li{
+.topcardright ul{
     font-size: 1.25vw;
     max-width: 25vw;
     line-height: 2vw;
