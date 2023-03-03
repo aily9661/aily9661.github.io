@@ -44,9 +44,9 @@ body{
 }
 
 @media (max-width: 500px){
-    .topcardright ul{
-        left: 44vw;
-    }
+    .topcardleft, .topcardright{height:24vw;}
+    .topcardright ul{left: 44vw;font-size:2.3vw;max-width:28vw;line-height:3vw;}
+    .topcardright img{height:14vw;width:14vw;}
 }
 
 #grid-parent{
@@ -62,7 +62,7 @@ body{
     color: rgb(40, 54, 24);
 }
 
-#grid-parent p, li{
+#grid-parent p, #grid-parent li{
     font-size: 1vw;
     color: black;
 }
@@ -76,6 +76,14 @@ body{
 #cell4{grid-row-start: 4;}
 
 #cell3 img{width: 4%; height: 4%;}
+
+@media (max-width: 500px){
+    #grid-parent h1{font-size: 4vw;}
+    #grid-parent p, #grid-parent li{font-size: 2.5vw;}
+    #cell3{line-height:4vw;}
+    #cell3 img{width:10%;height:10%;}
+}
+
 /* COLOR KIT:
 Tiger Eye: 188, 108, 37
 Earth Yellow: 221, 161, 94
