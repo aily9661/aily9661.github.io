@@ -30,6 +30,7 @@ body{
 .topcardleft p{
     font-size:7vw;
     margin-top:2vh;
+    margin-left:0.8vw;
     white-space:nowrap;
 }
 
@@ -39,6 +40,32 @@ body{
     padding: 0.1vw, 2vh;
     line-height: 3vh;
 }
+
+#grid-parent{
+    display: grid;
+}
+
+#grid-parent h1{
+    background-color: rgb(96, 108, 56);
+    padding:2vw 4vh;
+    margin:3vw;
+    height: 20vh;
+    font-size: 2vw;
+    color: rgb(40, 54, 24);
+}
+
+#grid-parent p, li{
+    font-size: 1vw;
+    color: black;
+}
+
+#cell1{grid-row-start: 1;}
+
+#cell2{grid-row-start: 2;}
+
+#cell3{grid-row-start: 3;}
+
+#cell4{grid-row-start: 4;}
 
 /* COLOR KIT:
 Tiger Eye: 188, 108, 37
