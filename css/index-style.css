@@ -6,14 +6,14 @@ body{
 
 .topcardleft{
     display:flex;
-    height:20vh;
+    height: 11.5vw;
     width: 50%;
     background-color: rgb(221, 161, 94);
 }
 
 .topcardright{
     display:flex;
-    height:20vh;
+    height:11.5vw;
     width:50%;
     background-color: rgb(188, 108, 37);
     float: right;
@@ -23,7 +23,7 @@ body{
     padding-top:2px;
     padding-left:4vw;
     margin: 1%;
-    height: 18vh;
+    height: 10vw;
     width: 18vw;
 }
 
@@ -31,14 +31,14 @@ body{
     font-size:7vw;
     margin-top:2vh;
     margin-left:0.8vw;
+    position: center;
     white-space:nowrap;
 }
 
 .topcardright li{
     font-size: 1.25vw;
     max-width: 25vw;
-    padding: 0.1vw, 2vh;
-    line-height: 3vh;
+    line-height: 2vw;
 }
 
 #grid-parent{
@@ -47,7 +47,7 @@ body{
 
 #grid-parent h1{
     background-color: rgb(96, 108, 56);
-    padding:2vw 4vh;
+    padding:2vw 2vw;
     margin:3vw;
     height: 20vh;
     font-size: 2vw;
