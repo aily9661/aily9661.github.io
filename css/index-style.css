@@ -93,8 +93,8 @@ body{
     #cell3 img{width:10%;height:10%;}
     #cell4 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
     #cell1:hover, #cell2:hover{height:55vh;padding:0.5vw;margin:1vw;}
-    #cell1:hover #cell1child{font-size:8vw;}
-    #cell2:hover #cell2child{font-size:8vw;}
+    #cell1:hover #cell1child{font-size:5vw;}
+    #cell2:hover #cell2child{font-size:5vw;}
 }
 
 /* COLOR KIT:
