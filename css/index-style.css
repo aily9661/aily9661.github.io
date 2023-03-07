@@ -60,11 +60,12 @@ body{
     height: 20vh;
     font-size: 2vw;
     color: rgb(40, 54, 24);
+    transition-duration: 1s;
 }
 
 #grid-parent p, #grid-parent li{
     font-size: 1.25vw;
-    color: black;
+    color: rgb(253, 255, 222);
 }
 
 #cell1{grid-row-start: 1;}
@@ -78,6 +79,12 @@ body{
 #cell3 img{width: 4%; height: 4%;}
 
 #cell4 img{width:8%; height: 8%;padding-right:8%;padding-left:8%}
+
+#cell1:hover, #cell2:hover{width:97vw;height:80vh;padding:0.5vw;margin:1vw;font-size:3vw;}
+
+#cell1:hover #cell1child{font-size:2.9vw;} /* makes the child's font size increase when parent is hovered */
+
+#cell2:hover #cell2child{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
 
 @media (max-width: 500px){
     #grid-parent h1{font-size: 4vw;}
