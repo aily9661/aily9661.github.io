@@ -63,7 +63,7 @@ body{
 }
 
 #grid-parent p, #grid-parent li{
-    font-size: 1vw;
+    font-size: 1.25vw;
     color: black;
 }
 
@@ -77,11 +77,14 @@ body{
 
 #cell3 img{width: 4%; height: 4%;}
 
+#cell4 img{width:8%; height: 8%;padding-right:8%;padding-left:8%}
+
 @media (max-width: 500px){
     #grid-parent h1{font-size: 4vw;}
-    #grid-parent p, #grid-parent li{font-size: 2.5vw;}
+    #grid-parent p, #grid-parent li{font-size: 2.4vw;}
     #cell3{line-height:4vw;}
     #cell3 img{width:10%;height:10%;}
+    #cell4 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
 }
 
 /* COLOR KIT:
