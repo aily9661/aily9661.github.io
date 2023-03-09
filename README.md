@@ -2,7 +2,8 @@
 # ATLS-2000 Web
 ## Projects
 - <a href="/html-midterm/">html-midterm repo</a> • <a href="http://aily9661.github.io/html-midterm/page5.html">html-midterm page 5</a>
-- CSS
+- <a href="index.html">css-midterm repo</a> • <a href="http://aily9661.github.io/index.html">css-midterm page</a> • <a href="/css/index-style.css">css-midterm css repo</a>
+
 - JS
 ## In-Class Assignmnets
 - <a href="/ica/ica3a.html">ica3a repo</a> • <a href="http://aily9661.github.io/ica/ica3a.html">ica3a page</a>
