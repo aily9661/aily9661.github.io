@@ -57,16 +57,10 @@ body{
     background-color: rgb(96, 108, 56);
     padding:2vw 2vw;
     margin:3vw;
-    height: 20vh;
+    height: 24vh;
     font-size: 2vw;
     color: rgb(40, 54, 24);
     transition-duration: 1s;
-}
-
-@media (max-width: 500px){
-    #grid-parent-div{
-        height:24vh;
-    }
 }
 
 #grid-parent p, #grid-parent li{
@@ -78,13 +72,13 @@ body{
 
 #cell2{grid-row-start: 2;}
 
-#cell3{grid-row-start: 3;}
+#cell3{grid-row-start: 3;height:48vh;}
 
 #cell4{grid-row-start: 4;list-style-type: none;word-spacing: 35vw;line-height:2vw;}
 
 #cell5{grid-row-start: 5;grid-column-start: 1;}
 
-#cell3 img{padding-right:8%;padding-left:8%}
+#cell3 img{width: 6%; height: 6%;padding-right:8%;padding-left:8%}
 
 #cell4 img{width: 4%; height: 4%;}
 
