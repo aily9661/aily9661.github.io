@@ -53,7 +53,7 @@ body{
     display: grid;
 }
 
-#grid-parent h1{
+#grid-parent div{
     background-color: rgb(96, 108, 56);
     padding:2vw 2vw;
     margin:3vw;
