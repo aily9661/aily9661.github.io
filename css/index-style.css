@@ -88,9 +88,9 @@ body{
 
 #cell1:hover, #cell2:hover{width:97vw;height:85vh;padding:0.5vw;margin:1vw;font-size:2.85vw;}
 
-#cell1:hover #cell1child{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
+#cell1:hover p{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
 
-#cell2:hover #cell2child{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
+#cell2:hover p{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
 
 @media (max-width: 500px){
     #grid-parent h1{font-size: 4vw;}
@@ -100,8 +100,8 @@ body{
     #cell4 img{width:10%;height:10%;}
     #cell5 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
     #cell1:hover, #cell2:hover{height:75vh;padding:0.5vw;margin:1vw;}
-    #cell1:hover #cell1child{font-size:4.85vw;}
-    #cell2:hover #cell2child{font-size:4.85vw;}
+    #cell1:hover p{font-size:4.85vw;}
+    #cell2:hover p{font-size:4.85vw;}
 }
 
 /* COLOR KIT:
