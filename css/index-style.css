@@ -65,7 +65,7 @@ body{
 
 @media (max-width: 500px){
     #grid-parent-div{
-        height:24vh;
+        height:20vh;
     }
 }
 
@@ -78,7 +78,7 @@ body{
 
 #cell2{grid-row-start: 2;}
 
-#cell3{grid-row-start: 3;}
+#cell3{grid-row-start: 3;height:48vh}
 
 #cell4{grid-row-start: 4;list-style-type: none;word-spacing: 35vw;line-height:2vw;}
 
