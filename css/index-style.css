@@ -57,18 +57,21 @@ body{
     background-color: rgb(96, 108, 56);
     padding:2vw 2vw;
     margin:3vw;
-    height: 20vh;
+    height: 24vh;
     font-size: 2vw;
     color: rgb(40, 54, 24);
     transition-duration: 1s;
 }
 
+<<<<<<< HEAD
 @media (max-width: 500px){
     #grid-parent-div{
         height:20vh;
     }
 }
 
+=======
+>>>>>>> 95994f25f4b7b1eb570a2b7df26795eb8edb4020
 #grid-parent p, #grid-parent li{
     font-size: 1.25vw;
     color: rgb(254, 250, 224);
@@ -78,13 +81,17 @@ body{
 
 #cell2{grid-row-start: 2;}
 
+<<<<<<< HEAD
 #cell3{grid-row-start: 3;height:48vh}
+=======
+#cell3{grid-row-start: 3;height:48vh;}
+>>>>>>> 95994f25f4b7b1eb570a2b7df26795eb8edb4020
 
 #cell4{grid-row-start: 4;list-style-type: none;word-spacing: 35vw;line-height:2vw;}
 
 #cell5{grid-row-start: 5;grid-column-start: 1;}
 
-#cell3 img{padding-right:8%;padding-left:8%}
+#cell3 img{width: 6%; height: 6%;padding-right:8%;padding-left:8%}
 
 #cell4 img{width: 4%; height: 4%;}
 
