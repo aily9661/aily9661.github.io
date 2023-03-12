@@ -57,55 +57,44 @@ body{
     background-color: rgb(96, 108, 56);
     padding:2vw 2vw;
     margin:3vw;
-    height: 24vh;
+    height: 20vh;
     font-size: 2vw;
     color: rgb(40, 54, 24);
     transition-duration: 1s;
 }
 
-@media (max-width: 500px){
-    #grid-parent-div{
-        height:20vh;
-    }
-}
-
 #grid-parent p, #grid-parent li{
     font-size: 1.25vw;
-    color: rgb(254, 250, 224);
+    color: rgb(253, 255, 222);
 }
 
 #cell1{grid-row-start: 1;}
 
 #cell2{grid-row-start: 2;}
 
-#cell3{grid-row-start: 3;height:48vh}
+#cell3{grid-row-start: 3;list-style-type: none;word-spacing: 35vw;line-height:2vw;}
 
-#cell4{grid-row-start: 4;list-style-type: none;word-spacing: 35vw;line-height:2vw;}
+#cell4{grid-row-start: 4;}
 
-#cell5{grid-row-start: 5;grid-column-start: 1;}
+#cell3 img{width: 4%; height: 4%;}
 
-#cell3 img{width: 6%; height: 6%;padding-right:8%;padding-left:8%}
-
-#cell4 img{width: 4%; height: 4%;}
-
-#cell5 img{width:8%; height: 8%;padding-right:8%;padding-left:8%}
+#cell4 img{width:8%; height: 8%;padding-right:8%;padding-left:8%}
 
 #cell1:hover, #cell2:hover{width:97vw;height:85vh;padding:0.5vw;margin:1vw;font-size:2.85vw;}
 
-#cell1:hover p{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
+#cell1:hover #cell1child{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
 
-#cell2:hover p{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
+#cell2:hover #cell2child{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
 
 @media (max-width: 500px){
     #grid-parent h1{font-size: 4vw;}
     #grid-parent p, #grid-parent li{font-size: 2.4vw;}
-    #cell3 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
-    #cell4{line-height:4vw;}
-    #cell4 img{width:10%;height:10%;}
-    #cell5 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
+    #cell3{line-height:4vw;}
+    #cell3 img{width:10%;height:10%;}
+    #cell4 img{width:16%; height: 16%;padding-right:4%;padding-left:4%}
     #cell1:hover, #cell2:hover{height:75vh;padding:0.5vw;margin:1vw;}
-    #cell1:hover p{font-size:4.85vw;}
-    #cell2:hover p{font-size:4.85vw;}
+    #cell1:hover #cell1child{font-size:4.85vw;}
+    #cell2:hover #cell2child{font-size:4.85vw;}
 }
 
 /* COLOR KIT:
@@ -115,4 +104,3 @@ Corn Silk: 254, 250, 224
 Pakistan Green: 40, 54, 24
 Dark Moss Green: 96, 108, 56
 */
-
