@@ -1,0 +1,24 @@
+body{
+    font-size: 3vw;
+    margin:1%;
+}
+
+#button1{
+    border-style: solid;
+    text-align:center;
+    border-color:rgba(43, 43, 43, 0.4);
+    background-color: rgba(209, 209, 209, 0.8);
+    border-radius:5px;
+    width:14vw;
+    font-family: verdana;
+}
+
+#button2{
+    border-style: solid;
+    text-align:center;
+    border-color:rgba(43, 43, 43, 0.4);
+    background-color: rgba(209, 209, 209, 0.8);
+    border-radius:5px;
+    width:14vw;
+    font-family: cursive;
+}
