@@ -82,9 +82,9 @@ body{
 
 #cell1:hover, #cell2:hover{width:97vw;height:85vh;padding:0.5vw;margin:1vw;font-size:2.85vw;}
 
-#cell1:hover #grid-parent p{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
+#cell1:hover #cell1child{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
 
-#cell2:hover #grid-parent p{font-size:3vw;} /* makes the child's font size increase when parent is hovered */
+#cell2:hover #cell2child{font-size:2.85vw;} /* makes the child's font size increase when parent is hovered */
 
 @media (max-width: 500px){
     #grid-parent h1{font-size: 4vw;}
