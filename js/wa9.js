@@ -8,15 +8,15 @@ function randomValueFromArray(array){
 }
 
 let storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
-let insertX = array['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
-let insertY = array['the soup kitchen', 'Disneyland', 'the White House'];
-let insertZ = array['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
+let insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
+let insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
+let insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
 
 randomize.addEventListener('click', result);
 
 function result() {
 
-  if(customName.value !== '') {
+  if(customName.value !== 'Bob') {
     const name = customName.value;
 
   }
@@ -27,9 +27,15 @@ function result() {
 
   }
 
-  story.textContent = ;
+  story.textContent = storyText;
   story.style.visibility = 'visible';
 }
 
-//continue from step Completing the result() function:
+let newStory = storyText;
+let xItem = randomValueFromArray();
+let yItem = randomValueFromArray();
+let zItem = randomValueFromArray();
 
+storyText = 'It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. Bob saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.';
+
+//things to do... UK measurements, make story change
