@@ -7,35 +7,41 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-let storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
-let insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas'];
-let insertY = ['the soup kitchen', 'Disneyland', 'the White House'];
-let insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and crawled away'];
+let insertX = ['Marshmallow the Dragon Slayer', 'Lil\' stink', 'Donkey Kong'];
+let insertY = ['grandma\'s bedroom', 'the circus', 'a big puddle'];
+let insertZ = ['become corrupt from the inside out', 'turn to ash', 'do a cool backflip before exploding'];
+let name = 'Bob';
+let temperature = '94 farenheight';
+let weight = '300 pounds';
 
 randomize.addEventListener('click', result);
 
 function result() {
-
-  if(customName.value !== 'Bob') {
-    const name = customName.value;
+  if(customName.value !== '') {
+    name = customName.value;
 
   }
+
+  let xItem = randomValueFromArray(insertX);
+  let yItem = randomValueFromArray(insertY);
+  let zItem = randomValueFromArray(insertZ);
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
+    weight = `${Math.round(400/14)} stone`;
+    temperature =  `${Math.round((32-32)*5/9)} degree celcius`;
 
   }
+
+  if(document.getElementById("us").checked) {
+    weight = '400 pounds';
+    temperature =  '32 degree farenheight';
+
+  }
+
+  let storyText = `It was another sad day in Boulder, CO. At a temperature of ${temperature} outside, ${name} wanted to stay home all day. However, a knock arrived at the door. ${name} creaked open the door, and to their horror they saw ${xItem} staring them down. They clung to their door and begged, \”please oh please ${xItem} don\'t make me go out in the cold today.\” ${xItem} responded, \”you know what you agreed to when you signed that blood pack. Come on, today I wanna go to ${yItem}\”. So ${name} slinked on their jacket and followed ${xItem} out the door. When they arrived at ${yItem} they smelled something unfamiliar in the air. ${xItem} dashed inside only to ${zItem}. ${name} chuckled to themselves, \”maybe we should of stayed home after all.\” ${name} walked home with a smile on their face, happy to know they finally escaped the blood pack.`;
 
   story.textContent = storyText;
   story.style.visibility = 'visible';
 }
-
-let newStory = storyText;
-let xItem = randomValueFromArray();
-let yItem = randomValueFromArray();
-let zItem = randomValueFromArray();
-
-storyText = 'It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. Bob saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.';
 
 //things to do... UK measurements, make story change
