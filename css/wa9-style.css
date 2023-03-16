@@ -1,8 +1,9 @@
 body {
     font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(254, 250, 224);
-    width: 350px;
+    width: 650px;
     color: rgb(40, 54, 24);
+    font-size:25px;
   }
 
   label {
