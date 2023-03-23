@@ -24,3 +24,4 @@
 - <a href="/wa/wa6/wa6.html">wa6 repo</a> • <a href="http://aily9661.github.io/wa/wa6/wa6.html">wa6 page</a> • <a href="/wa/wa6/style.css">wa6 css repo</a>
 - <a href="/wa/wa7.html">wa7 repo</a> • <a href="http://aily9661.github.io/wa/wa7.html">wa7 page</a> • <a href="/css/wa7-style.css">wa7 css repo</a>
 - <a href="/wa/wa9.html">wa9 repo</a> • <a href="http://aily9661.github.io/wa/wa9.html">wa9 page</a> • <a href="/css/wa9-style.css">wa9 css repo</a> • <a href="/js/wa9.js">wa9 js repo</a>
+- <a href="/wa/wa10">wa10 repo</a> • <a href="http://aily9661.github.io/wa/wa10/wa10.html">wa10 page</a>
