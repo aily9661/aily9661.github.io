@@ -35,9 +35,12 @@
         <label for="highLow">Do you think the dice roll will be high >3 or low</label>
         <input id="highLow" type="text" placeholder="H or L">
     </div>
-    <button>Gamble</button>
+    <button id="gambleButton">Gamble</button>
+    <h2><u>Loan Shark Inc.</u></h2>
+    <button id="loanButton">Beg for more volume</button>
     <script>
-        const btn = document.querySelector("button");
+        const gambleBtn = document.querySelector("#gambleButton");
+        const loanBtn = document.querySelector("#loanButton");
         const gambleCount = document.querySelector("#gambleCount");
         const userGuess = document.querySelector("#highLow");
         const currentVolume = document.querySelector("#current");
@@ -50,7 +53,7 @@
         function volumeAdjust(winLoss){
             let oldVolume = Number(currentVolume.textContent);
             let gCount = Number(gambleCount.value);
-            let newVolume = 0
+            let newVolume = 0;
 
             if (winLoss === true) {
                 newVolume = (oldVolume + gCount);
@@ -88,7 +91,26 @@
             }
         }
 
-        btn.addEventListener('click', function(){gamble()});
+            /* check to make sure user properly enters prompts */
+        function check(){
+            checkNum = Number(gambleCount.value);
+            checkGuess = userGuess.value;
+            checkVol = Number(currentVolume.textContent)
+
+            if (isNaN(checkNum)){
+                alert('Gamble value must be a number')
+            } else if (checkNum > checkVol){
+                alert('You can\'t gamble more volume than you have!')
+            } else if (checkNum <= 0){
+                alert('Gamble value must be greater than 0')
+            } else if (checkGuess != 'H' && checkGuess != 'L'){
+                alert('Your guess must either be \'H\' or \'L\'')
+            } else {
+                gamble()
+            }
+        }
+
+        gambleBtn.addEventListener('click', function(){check()});
     </script>
 </body>
 </html>
