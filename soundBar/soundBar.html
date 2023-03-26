@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling SoundBar</title>
+    <style>
+        body{background-color: rgb(254, 250, 224);font-family:Georgia, 'Times New Roman', Times, serif;}
+        .soundBar{
+            border: 0.2em dashed grey;
+            width: 15vw;
+            height: 80px;
+            text-align: center;
+        }
+        .gambleDisplay{
+            padding-top:10px;
+        }
+        .highLow{
+            padding-top:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gamble your volume away!</h1>
+    <div class="soundBar">
+        <p>Current volume:</p>
+        <p id="current">5</p>
+    </div>
+    <div class="gambleDisplay">
+        <label for="gambleCount">How much volume would you like to gamble?:</label>
+        <input id="gambleCount" type="text" placeholder="">
+    </div>
+    <div class="highLow">
+        <label for="highLow">Do you think the dice roll will be high >3 or low</label>
+        <input id="highLow" type="text" placeholder="H or L">
+    </div>
+    <button>Gamble</button>
+    <script>
+        const btn = document.querySelector("button");
+        const gambleCount = document.querySelector("#gambleCount");
+        const userGuess = document.querySelector("#highLow");
+        const currentVolume = document.querySelector("#current");
+
+        function diceRoller(){
+            let diceRoll = Math.ceil(Math.random()*6);
+            return diceRoll;
+        }
+
+        function volumeAdjust(winLoss){
+            let oldVolume = Number(currentVolume.textContent);
+            let gCount = Number(gambleCount.value);
+            let newVolume = 0
+
+            if (winLoss === true) {
+                newVolume = (oldVolume + gCount);
+            } else {
+                newVolume = (oldVolume - gCount);
+            }
+
+            currentVolume.textContent = newVolume;
+        }
+
+        function gamble(){
+            let gCount = gambleCount.value;
+            let uGuess = userGuess.value;
+            let diceRoll = diceRoller();
+
+            /* high guess */
+            if (uGuess==='H' && diceRoll>=4) {
+                alert(`You Win! Dice roll was ${diceRoll}`)
+                let winLoss = true;
+                volumeAdjust(winLoss);
+            } else if (uGuess==='H' && diceRoll<4) {
+                alert(`You lose! Dice roll was ${diceRoll}`)
+                let winLoss = false;
+                volumeAdjust(winLoss);
+
+            /* low guess */
+            } if (uGuess==='L' && diceRoll<=3) {
+                alert(`You Win! Dice roll was ${diceRoll}`)
+                let winLoss = true;
+                volumeAdjust(winLoss);
+            } else if (uGuess==='L' && diceRoll>3) {
+                alert(`You lose! Dice roll was ${diceRoll}`)
+                let winLoss = false;
+                volumeAdjust(winLoss);
+            }
+        }
+
+        btn.addEventListener('click', function(){gamble()});
+    </script>
+</body>
+</html>
