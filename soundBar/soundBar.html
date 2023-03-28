@@ -44,12 +44,15 @@
         const gambleCount = document.querySelector("#gambleCount");
         const userGuess = document.querySelector("#highLow");
         const currentVolume = document.querySelector("#current");
+        let begCount = 0;
 
+        /*Rolls a 6 sided dye*/
         function diceRoller(){
             let diceRoll = Math.ceil(Math.random()*6);
             return diceRoll;
         }
 
+        /*Sets new volme*/
         function volumeAdjust(winLoss){
             let oldVolume = Number(currentVolume.textContent);
             let gCount = Number(gambleCount.value);
@@ -63,7 +66,7 @@
 
             currentVolume.textContent = newVolume;
         }
-
+        /*Checks for win loss of user*/
         function gamble(){
             let gCount = gambleCount.value;
             let uGuess = userGuess.value;
@@ -71,21 +74,21 @@
 
             /* high guess */
             if (uGuess==='H' && diceRoll>=4) {
-                alert(`You Win! Dice roll was ${diceRoll}`)
+                alert(`You Win! Dice roll was ${diceRoll}`);
                 let winLoss = true;
                 volumeAdjust(winLoss);
             } else if (uGuess==='H' && diceRoll<4) {
-                alert(`You lose! Dice roll was ${diceRoll}`)
+                alert(`You lose! Dice roll was ${diceRoll}`);
                 let winLoss = false;
                 volumeAdjust(winLoss);
 
             /* low guess */
             } if (uGuess==='L' && diceRoll<=3) {
-                alert(`You Win! Dice roll was ${diceRoll}`)
+                alert(`You Win! Dice roll was ${diceRoll}`);
                 let winLoss = true;
                 volumeAdjust(winLoss);
             } else if (uGuess==='L' && diceRoll>3) {
-                alert(`You lose! Dice roll was ${diceRoll}`)
+                alert(`You lose! Dice roll was ${diceRoll}`);
                 let winLoss = false;
                 volumeAdjust(winLoss);
             }
@@ -95,22 +98,41 @@
         function check(){
             checkNum = Number(gambleCount.value);
             checkGuess = userGuess.value;
-            checkVol = Number(currentVolume.textContent)
+            checkVol = Number(currentVolume.textContent);
 
             if (isNaN(checkNum)){
-                alert('Gamble value must be a number')
+                alert('Gamble value must be a number');
             } else if (checkNum > checkVol){
-                alert('You can\'t gamble more volume than you have!')
+                alert('You can\'t gamble more volume than you have!');
             } else if (checkNum <= 0){
-                alert('Gamble value must be greater than 0')
+                alert('Gamble value must be greater than 0');
             } else if (checkGuess != 'H' && checkGuess != 'L'){
-                alert('Your guess must either be \'H\' or \'L\'')
+                alert('Your guess must either be \'H\' or \'L\'');
             } else {
-                gamble()
+                gamble();
+            }
+        }
+        /*Randomize clicks required for user*/
+        function maxClick(){
+            let maxClick = Math.ceil(Math.random()*40+15);
+            return maxClick;
+        }
+
+        /*Performs loan shark actions */
+        function loanShark(){
+            if (begCount === 0) {
+                begCount = maxClick()
+            }
+            begCount-=1;
+            loanBtn.textContent = `Hm try begging ${begCount} more times...`;
+            if (begCount === 0) {
+                currentVolume.textContent = Number(currentVolume.textContent) + 3;
+                loanBtn.textContent = `They granted your loan! Beg again?`;
             }
         }
 
         gambleBtn.addEventListener('click', function(){check()});
+        loanBtn.addEventListener('click', function(){loanShark()})
     </script>
 </body>
 </html>
