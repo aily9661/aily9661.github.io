@@ -50,26 +50,9 @@
         const altArray = ['A dye displaying one','A dye displaying two','A dye displaying three','A dye displaying four','A dye displaying five','A dye displaying six'];
         let begCount = 0;
 
-        /*function for pausing during animation learned by James Hibbard on sitepoint https://www.sitepoint.com/delay-sleep-pause-wait/*/
-        function sleep(milliseconds) {
-            const date = Date.now();
-                let currentDate = null;
-                do {
-                    currentDate = Date.now();
-                } while (currentDate - date < milliseconds);
-        }
-
         /*Rolls a 6 sided dye*/
         function diceRoller(){
             let diceRoll = Math.ceil(Math.random()*6);
-            let i = 0;
-            while (i<6){
-                i++;
-                let random=Math.ceil(Math.random()*6);
-                dye.src = dyeArray[random-1];
-                dye.alt = altArray[random-1];
-                sleep(300);
-            }
             dye.src = dyeArray[diceRoll-1];
             dye.alt = altArray[diceRoll-1];
             return diceRoll;
