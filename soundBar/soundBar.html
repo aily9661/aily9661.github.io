@@ -36,6 +36,7 @@
         <input id="highLow" type="text" placeholder="H or L">
     </div>
     <button id="gambleButton">Gamble</button>
+    <img id='dice' src="dyeImg/six.png" alt="A dye displaying six" height="100px" width="100px">
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
     <script>
@@ -44,11 +45,16 @@
         const gambleCount = document.querySelector("#gambleCount");
         const userGuess = document.querySelector("#highLow");
         const currentVolume = document.querySelector("#current");
+        const dye = document.querySelector("#dice");
+        const dyeArray = ['dyeImg/one.png','dyeImg/two.png','dyeImg/three.png','dyeImg/four.png','dyeImg/five.png','dyeImg/six.png'];
+        const altArray = ['A dye displaying one','A dye displaying two','A dye displaying three','A dye displaying four','A dye displaying five','A dye displaying six'];
         let begCount = 0;
 
         /*Rolls a 6 sided dye*/
         function diceRoller(){
             let diceRoll = Math.ceil(Math.random()*6);
+            let i = 0;
+            dye.alt.replace = altArray[diceRoll] /* fix */
             return diceRoll;
         }
 
