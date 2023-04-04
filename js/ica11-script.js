@@ -1,13 +1,22 @@
 const btn = document.querySelector('button');
-const api = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
+const url = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
+const quoteText = document.querySelector('#js-quote-text')
 
-function getQuote(){
-    response = fetch(api);
-    then(response) => {
-        // Our handler throws an error if the request did not succeed.
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
+function displayQuote(text){
+    console.log(text);
+    quoteText.textContent = text;
 }
 
-btn.addEventListener('click', () => getQuote());
+function getQuote(){
+    fetch(url)
+    .then((response) => {
+        if (!response.ok) {
+            console.log(`HTTP error: ${response.status}`);
+            alert(`HTTP error: ${response.status}`);
+    } 
+    return response.text();
+    })
+    .then((text) => displayQuote(text));
+}
+
+btn.addEventListener('click', getQuote());
