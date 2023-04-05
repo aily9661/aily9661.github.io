@@ -19,4 +19,5 @@ function getQuote(){
     .then((text) => displayQuote(text));
 }
 
-btn.addEventListener('click', getQuote());
+getQuote();
+btn.addEventListener('click', getQuote);
