@@ -19,6 +19,41 @@
         .highLow{
             padding-top:10px;
         }
+        .dice{
+            background: url(dyeImg/six.png);
+            background-size: 100px 100px;
+            height: 100px;
+            width: 100px;
+        }
+        #dyeAnimation {
+            animation: diceRoll 1s infinite alternate;
+        }
+       @keyframes diceRoll {
+            from {
+                background: url('dyeImg/one.png');
+                background-size: 100px 100px;
+            }
+            20% {
+                background: url('dyeImg/two.png');
+                background-size: 100px 100px;
+            }
+            40% {
+                background: url('dyeImg/three.png');
+                background-size: 100px 100px;
+            }
+            60% {
+                background: url('dyeImg/four.png');
+                background-size: 100px 100px;
+            }
+            80% {
+                background: url('dyeImg/five.png');
+                background-size: 100px 100px;
+            }
+            100% {
+                background: url('dyeImg/six.png');
+                background-size: 100px 100px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -36,7 +71,7 @@
         <input id="highLow" type="text" placeholder="H or L">
     </div>
     <button id="gambleButton">Gamble</button>
-    <img id='dice' src="dyeImg/six.png" alt="A dye displaying six" height="100px" width="100px">
+    <div class="dice"></div>
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
     <script>
@@ -45,16 +80,21 @@
         const gambleCount = document.querySelector("#gambleCount");
         const userGuess = document.querySelector("#highLow");
         const currentVolume = document.querySelector("#current");
-        const dye = document.querySelector("#dice");
-        const dyeArray = ['dyeImg/one.png','dyeImg/two.png','dyeImg/three.png','dyeImg/four.png','dyeImg/five.png','dyeImg/six.png'];
-        const altArray = ['A dye displaying one','A dye displaying two','A dye displaying three','A dye displaying four','A dye displaying five','A dye displaying six'];
+        const dye =  document.querySelector(".dice")
+        const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
+
+        /* I use this delay function to allow for a dice animation. I am using this delay function from author, Descope on "Mastering JS" https://masteringjs.io/tutorials/fundamentals/wait-1-second-then */
+        function delay(time) {
+            return new Promise(resolve => setTimeout(resolve, time));
+        }
 
         /*Rolls a 6 sided dye*/
         function diceRoller(){
             let diceRoll = Math.ceil(Math.random()*6);
-            dye.src = dyeArray[diceRoll-1];
-            dye.alt = altArray[diceRoll-1];
+            dye.setAttribute('id', 'dyeAnimation')
+            delay(2000).then(() => dye.removeAttribute('id', 'dyeAnimation'));
+            delay(2000).then(() => dye.style.backgroundImage = dyeArray[diceRoll-1]);
             return diceRoll;
         }
 
@@ -80,23 +120,23 @@
 
             /* high guess */
             if (uGuess==='H' && diceRoll>=4) {
-                alert(`You Win! Dice roll was ${diceRoll}`);
+                delay(2010).then(() => alert(`You Win! Dice roll was ${diceRoll}`));
                 let winLoss = true;
-                volumeAdjust(winLoss);
+                delay(2010).then(() => volumeAdjust(winLoss));
             } else if (uGuess==='H' && diceRoll<4) {
-                alert(`You lose! Dice roll was ${diceRoll}`);
+                delay(2010).then(() => alert(`You lose! Dice roll was ${diceRoll}`));
                 let winLoss = false;
-                volumeAdjust(winLoss);
+                delay(2010).then(() => volumeAdjust(winLoss));
 
             /* low guess */
             } if (uGuess==='L' && diceRoll<=3) {
-                alert(`You Win! Dice roll was ${diceRoll}`);
+                delay(2010).then(() => alert(`You Win! Dice roll was ${diceRoll}`));
                 let winLoss = true;
-                volumeAdjust(winLoss);
+                delay(2010).then(() => volumeAdjust(winLoss));
             } else if (uGuess==='L' && diceRoll>3) {
-                alert(`You lose! Dice roll was ${diceRoll}`);
+                delay(2010).then(() => alert(`You lose! Dice roll was ${diceRoll}`));
                 let winLoss = false;
-                volumeAdjust(winLoss);
+                delay(2010).then(() => volumeAdjust(winLoss));
             }
         }
 
