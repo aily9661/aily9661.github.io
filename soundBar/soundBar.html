@@ -59,8 +59,8 @@
         .win{
             border: 50px;
             background-color: rgb(64, 231, 70);
-            height: 300px;
-            width: 425px;
+            height: 35vh;
+            width: 28vw;
             animation: victory 5s infinite alternate;
             right: 35%;
             top: 18%;
@@ -68,7 +68,7 @@
         }
         
         .win p{
-            font-size: 50px;
+            font-size: 3.5vw;
             padding: 5px;
             text-align: center;
         }
@@ -81,8 +81,8 @@
 
         .loss{
             background-color: rgb(255, 55, 0);
-            height: 300px;
-            width: 425px;
+            height: 33vh;
+            width: 28vw;
             animation: loser 5s infinite alternate;
             right: 35%;
             top: 18%;
@@ -90,7 +90,7 @@
         }
 
         .loss p{
-            font-size: 50px;
+            font-size: 3.5vw;
             padding: 5px;
             text-align: center;
         }
@@ -98,6 +98,11 @@
         @keyframes loser {
             from {background-color: rgb(255, 55, 0);}
             to {background-color: rgb(220, 121, 0);}
+        }
+
+        @media (max-width: 500px){
+            .win, .loss{height:17vh;top:57%;width:30vw;}
+            .win p, .loss p{font-size:4.5vw;}
         }
     </style>
 </head>
