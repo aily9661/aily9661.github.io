@@ -22,6 +22,7 @@
         .dice{
             background: url(dyeImg/six.png);
             background-size: 100px 100px;
+            background-repeat: no-repeat;
             height: 100px;
             width: 100px;
         }
@@ -54,6 +55,50 @@
                 background-size: 100px 100px;
             }
         }
+
+        .win{
+            border: 50px;
+            background-color: rgb(64, 231, 70);
+            height: 300px;
+            width: 425px;
+            animation: victory 5s infinite alternate;
+            right: 35%;
+            top: 18%;
+            position: absolute
+        }
+        
+        .win p{
+            font-size: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        @keyframes victory {
+            from {background-color: rgb(64, 231, 70);}
+            50% {background-color: rgb(240, 248, 70);}
+            to {background-color: rgb(70, 255, 193);}
+        }
+
+        .loss{
+            background-color: rgb(255, 55, 0);
+            height: 300px;
+            width: 425px;
+            animation: loser 5s infinite alternate;
+            right: 35%;
+            top: 18%;
+            position: absolute
+        }
+
+        .loss p{
+            font-size: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        @keyframes loser {
+            from {background-color: rgb(255, 55, 0);}
+            to {background-color: rgb(220, 121, 0);}
+        }
     </style>
 </head>
 <body>
@@ -72,6 +117,10 @@
     </div>
     <button id="gambleButton">Gamble</button>
     <div class="dice"></div>
+    <div id="winLossBox">
+        <p id="winLossText"></p>
+        <p id="diceRollAlert"></p>
+    </div>
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
     <script>
@@ -80,7 +129,10 @@
         const gambleCount = document.querySelector("#gambleCount");
         const userGuess = document.querySelector("#highLow");
         const currentVolume = document.querySelector("#current");
-        const dye =  document.querySelector(".dice")
+        const dye =  document.querySelector(".dice");
+        const winLossBox = document.querySelector("#winLossBox");
+        const winLossText = document.querySelector("#winLossText");
+        const diceRollAlert = document.querySelector("#diceRollAlert");
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
 
@@ -99,51 +151,54 @@
         }
 
         /*Sets new volme*/
-        function volumeAdjust(winLoss){
+        function volumeAdjust(winLoss, diceRoll){
             let oldVolume = Number(currentVolume.textContent);
             let gCount = Number(gambleCount.value);
             let newVolume = 0;
 
             if (winLoss === true) {
                 newVolume = (oldVolume + gCount);
+                winLossBox.setAttribute('class', 'win');
+                winLossText.textContent = `You Win!`;
+                diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
             } else {
                 newVolume = (oldVolume - gCount);
+                winLossBox.setAttribute('class', 'loss');
+                winLossText.textContent = `You Lose!`;
+                diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
             }
 
             currentVolume.textContent = newVolume;
         }
+
         /*Checks for win loss of user*/
         function gamble(){
             let gCount = gambleCount.value;
-            let uGuess = userGuess.value;
+            let uGuess = userGuess.value.toUpperCase();
             let diceRoll = diceRoller();
 
             /* high guess */
             if (uGuess==='H' && diceRoll>=4) {
-                delay(2010).then(() => alert(`You Win! Dice roll was ${diceRoll}`));
                 let winLoss = true;
-                delay(2010).then(() => volumeAdjust(winLoss));
-            } else if (uGuess==='H' && diceRoll<4) {
-                delay(2010).then(() => alert(`You lose! Dice roll was ${diceRoll}`));
-                let winLoss = false;
-                delay(2010).then(() => volumeAdjust(winLoss));
+                delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
 
+            } else if (uGuess==='H' && diceRoll<4) {
+                let winLoss = false;
+                delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
             /* low guess */
             } if (uGuess==='L' && diceRoll<=3) {
-                delay(2010).then(() => alert(`You Win! Dice roll was ${diceRoll}`));
                 let winLoss = true;
-                delay(2010).then(() => volumeAdjust(winLoss));
+                delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
             } else if (uGuess==='L' && diceRoll>3) {
-                delay(2010).then(() => alert(`You lose! Dice roll was ${diceRoll}`));
                 let winLoss = false;
-                delay(2010).then(() => volumeAdjust(winLoss));
+                delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
             }
         }
 
             /* check to make sure user properly enters prompts */
         function check(){
             checkNum = Number(gambleCount.value);
-            checkGuess = userGuess.value;
+            checkGuess = userGuess.value.toUpperCase();
             checkVol = Number(currentVolume.textContent);
 
             if (isNaN(checkNum)){
