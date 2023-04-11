@@ -3,8 +3,8 @@
 ## Projects
 - <a href="/html-midterm/">html-midterm repo</a> • <a href="http://aily9661.github.io/html-midterm/page5.html">html-midterm page 5</a>
 - <a href="index.html">css-midterm repo</a> • <a href="http://aily9661.github.io/index.html">css-midterm page</a> • <a href="/css/index-style.css">css-midterm css repo</a>
-
 - JS
+
 ## In-Class Assignmnets
 - <a href="/ica/ica3a.html">ica3a repo</a> • <a href="http://aily9661.github.io/ica/ica3a.html">ica3a page</a>
 - <a href="/ica/ica3b-part2/ica3b.html">ica3b repo</a> • <a href="http://aily9661.github.io/ica/ica3b-part2/ica3b.html">ica3b page</a>
@@ -15,6 +15,7 @@
 - <a href="/ica/ica9.html">ica9 repo</a> • <a href="http://aily9661.github.io/ica/ica9.html">ica9 page</a> • <a href="/css/ica9-style.css">ica9 css repo</a> • <a href="/js/ica9.js">ica9 js repo</a>
 - <a href="/ica/ica10.html">ica10 repo</a> • <a href="http://aily9661.github.io/ica/ica10.html">ica10 page</a>
 - <a href="/js/ica11-script.js">ica11 js repo</a> • <a href="http://aily9661.github.io/ica/ica11.html">ica11 page</a>
+- <a href="/js/ica/ica12/main.js">ica12 js repo</a> • <a href="http://aily9661.github.io/ica/ica12/ica12.html">ica12 page</a>
 
 ## Weekly Assignments
 - <a href="/wa/wa1.html">wa1 repo</a> • <a href="http://aily9661.github.io/wa/wa1.html">wa1 page</a>
