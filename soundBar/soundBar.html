@@ -196,6 +196,7 @@
         video.volume=0.04;
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
+        let begAddon = 0;
 
         /* I use this delay function to allow for a dice animation. I am using this delay function from author, Descope on "Mastering JS" https://masteringjs.io/tutorials/fundamentals/wait-1-second-then */
         function delay(time) {
@@ -289,7 +290,8 @@
         /*Performs loan shark actions */
         function loanShark(){
             if (begCount === 0) {
-                begCount = maxClick();
+                begCount = maxClick() + begAddon;
+                begAddon += 10;
             }
             begCount-=1;
             loanBtn.textContent = `Hm try begging ${begCount} more times...`;
