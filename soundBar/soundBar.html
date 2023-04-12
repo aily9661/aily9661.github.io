@@ -135,6 +135,11 @@
             position:absolute;
         }
 
+        #videoButton{
+            position:absolute;
+            left: 20%;
+        }
+
         .video{
             padding-top:30px;
         }
@@ -170,6 +175,7 @@
     </div>
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
+    <button id="videoButton">PLAY VIDEO</button>
     <video loop autoplay class="video">
         <source src="pumpUpTheJams.mp4" type="video/mp4">
     </video>
@@ -186,6 +192,7 @@
         const winGifs = document.querySelector("#winGifs");
         const lossGifs = document.querySelector("#lossGifs");
         const video = document.querySelector("video");
+        const playButton = document.querySelector("#videoButton")
         video.volume=0.005;
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
@@ -293,8 +300,13 @@
             }
         }
 
+        function playVid(){
+            video.play()
+        }
+
         gambleBtn.addEventListener('click', function(){check()});
         loanBtn.addEventListener('click', function(){loanShark()});
+        playButton.addEventListener('click', function(){playVid()});
     </script>
 </body>
 </html>
