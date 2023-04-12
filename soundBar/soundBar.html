@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gambling SoundBar</title>
     <style>
-        body{background-color: rgb(254, 250, 224);font-family:Georgia, 'Times New Roman', Times, serif;}
+        body{background-color: rgb(254, 250, 224);font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;}
         .soundBar{
+            left:42.5%;
+            position: absolute;
             border: 0.2em dashed grey;
             width: 15vw;
             height: 80px;
             text-align: center;
         }
         .gambleDisplay{
-            padding-top:10px;
+            padding-top: 8vh;
         }
         .highLow{
-            padding-top:10px;
+            padding-top: 10px;
+        }
+        #gambleButton{
+            margin-top: 10px;
         }
         .dice{
             background: url(dyeImg/six.png);
@@ -25,6 +30,8 @@
             background-repeat: no-repeat;
             height: 100px;
             width: 100px;
+            margin-top: 10px;
+            margin-left: 48%;
         }
         #dyeAnimation {
             animation: diceRoll 1s infinite alternate;
@@ -62,8 +69,8 @@
             height: 35vh;
             width: 28vw;
             animation: victory 5s infinite alternate;
-            left: 35%;
-            top: 25%;
+            left: 5%;
+            top: 40%;
             position: absolute
         }
         
@@ -83,10 +90,11 @@
             position:absolute;
             width: 20%;
             height: 40%;
+            left:0%;
         }
 
         #win2 {
-            right:0%;
+            left:80%;
         }
 
         @keyframes victory {
@@ -97,11 +105,11 @@
 
         .loss{
             background-color: rgb(255, 55, 0);
-            height: 33vh;
+            height: 35vh;
             width: 28vw;
             animation: loser 5s infinite alternate;
-            left: 35%;
-            top: 25%;
+            left: 5%;
+            top: 40%;
             position: absolute
         }
 
@@ -115,10 +123,11 @@
             position:absolute;
             width: 20%;
             height: 40%;
+            left:0%;
         }
 
         #loss2 {
-            right:0%;
+            left:83%;
         }
 
         @keyframes loser {
@@ -131,17 +140,15 @@
             .win p, .loss p{font-size:4.5vw;}
         }
 
-        #loanButton{
-            position:absolute;
-        }
 
         #videoButton{
             position:absolute;
-            left: 20%;
+            left:48%;
         }
 
         .video{
-            padding-top:30px;
+            padding-top: 30px;
+            margin:left 40px;
         }
     </style>
 </head>
@@ -173,8 +180,9 @@
         <p id="winLossText"></p>
         <p id="diceRollAlert"></p>
     </div>
-    <h2><u>Loan Shark Inc.</u></h2>
+    <h2><u>Loan Shark Inc.</u>
     <button id="loanButton">Beg for more volume</button>
+    </h2>
     <button id="videoButton">PLAY VIDEO</button>
     <video loop autoplay class="video">
         <source src="pumpUpTheJams.mp4" type="video/mp4">
