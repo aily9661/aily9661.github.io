@@ -130,6 +130,11 @@
             .win, .loss{height:17vh;top:57%;width:30vw;}
             .win p, .loss p{font-size:4.5vw;}
         }
+
+        .video{
+            width:500px;
+            height:450px;
+        }
     </style>
 </head>
 <body>
@@ -160,6 +165,9 @@
         <p id="winLossText"></p>
         <p id="diceRollAlert"></p>
     </div>
+    <video loop autoplay>
+        <source src="pumpUpTheJams.mp4" type="video/mp4" width="100px" height="500px">
+    </video>
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
     <script>
@@ -174,6 +182,8 @@
         const diceRollAlert = document.querySelector("#diceRollAlert");
         const winGifs = document.querySelector("#winGifs");
         const lossGifs = document.querySelector("#lossGifs");
+        const video = document.querySelector("video");
+        video.volume=0.005;
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
 
@@ -203,12 +213,16 @@
                 winLossText.textContent = `You Win!`;
                 diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
                 winGifs.setAttribute('class','winGifImg');
+                lossGifs.setAttribute('class','loser');
+                video.volume+=gCount*0.001;
             } else {
                 newVolume = (oldVolume - gCount);
                 winLossBox.setAttribute('class', 'loss');
                 winLossText.textContent = `You Lose!`;
                 diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
-                lossGifs.setAttribute('class','lossGifImg');;
+                lossGifs.setAttribute('class','lossGifImg');
+                winGifs.setAttribute('class','winner');
+                video.volume-=gCount*0.001;
             }
 
             currentVolume.textContent = newVolume;
