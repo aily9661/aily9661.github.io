@@ -131,9 +131,12 @@
             .win p, .loss p{font-size:4.5vw;}
         }
 
+        #loanButton{
+            position:absolute;
+        }
+
         .video{
-            width:500px;
-            height:450px;
+            padding-top:30px;
         }
     </style>
 </head>
@@ -156,20 +159,20 @@
     <div id="winLossBox">
         <div id="winGifs">
             <img src="dyeImg/dancinDice.gif">
-            <img id="win2" src="dyeImg/dancinDice.gif">
+            <img id="win2" src="dyeImg/dancinDice.gif" alt="dancing dye man">
         </div>
         <div id="lossGifs">
             <img src="dyeImg/cryingBaby.gif">
-            <img id="loss2" src="dyeImg/cryingBaby.gif">
+            <img id="loss2" src="dyeImg/cryingBaby.gif" alt="crying baby man">
         </div>
         <p id="winLossText"></p>
         <p id="diceRollAlert"></p>
     </div>
-    <video loop autoplay>
-        <source src="pumpUpTheJams.mp4" type="video/mp4" width="100px" height="500px">
-    </video>
     <h2><u>Loan Shark Inc.</u></h2>
     <button id="loanButton">Beg for more volume</button>
+    <video loop autoplay class="video">
+        <source src="pumpUpTheJams.mp4" type="video/mp4">
+    </video>
     <script>
         const gambleBtn = document.querySelector("#gambleButton");
         const loanBtn = document.querySelector("#loanButton");
@@ -279,13 +282,14 @@
         /*Performs loan shark actions */
         function loanShark(){
             if (begCount === 0) {
-                begCount = maxClick()
+                begCount = maxClick();
             }
             begCount-=1;
             loanBtn.textContent = `Hm try begging ${begCount} more times...`;
             if (begCount === 0) {
                 currentVolume.textContent = Number(currentVolume.textContent) + 3;
                 loanBtn.textContent = `They granted your loan! Beg again?`;
+                video.volume += 0.003;
             }
         }
 
