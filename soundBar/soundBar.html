@@ -73,6 +73,22 @@
             text-align: center;
         }
 
+        img{
+            position:absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .winGifImg img{
+            position:absolute;
+            width: 20%;
+            height: 40%;
+        }
+
+        #win2 {
+            right:0%;
+        }
+
         @keyframes victory {
             from {background-color: rgb(64, 231, 70);}
             50% {background-color: rgb(240, 248, 70);}
@@ -93,6 +109,16 @@
             font-size: 3.5vw;
             padding: 5px;
             text-align: center;
+        }
+
+        .lossGifImg img{
+            position:absolute;
+            width: 20%;
+            height: 40%;
+        }
+
+        #loss2 {
+            right:0%;
         }
 
         @keyframes loser {
@@ -123,6 +149,14 @@
     <button id="gambleButton">Gamble</button>
     <div class="dice"></div>
     <div id="winLossBox">
+        <div id="winGifs">
+            <img src="dyeImg/dancinDice.gif">
+            <img id="win2" src="dyeImg/dancinDice.gif">
+        </div>
+        <div id="lossGifs">
+            <img src="dyeImg/cryingBaby.gif">
+            <img id="loss2" src="dyeImg/cryingBaby.gif">
+        </div>
         <p id="winLossText"></p>
         <p id="diceRollAlert"></p>
     </div>
@@ -138,6 +172,8 @@
         const winLossBox = document.querySelector("#winLossBox");
         const winLossText = document.querySelector("#winLossText");
         const diceRollAlert = document.querySelector("#diceRollAlert");
+        const winGifs = document.querySelector("#winGifs");
+        const lossGifs = document.querySelector("#lossGifs");
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
         let begCount = 0;
 
@@ -166,11 +202,13 @@
                 winLossBox.setAttribute('class', 'win');
                 winLossText.textContent = `You Win!`;
                 diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
+                winGifs.setAttribute('class','winGifImg');
             } else {
                 newVolume = (oldVolume - gCount);
                 winLossBox.setAttribute('class', 'loss');
                 winLossText.textContent = `You Lose!`;
                 diceRollAlert.textContent = `Dice roll was ${diceRoll}`;
+                lossGifs.setAttribute('class','lossGifImg');;
             }
 
             currentVolume.textContent = newVolume;
