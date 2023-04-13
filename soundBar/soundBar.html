@@ -140,16 +140,34 @@
             .win p, .loss p{font-size:4.5vw;}
         }
 
-
-        #videoButton{
-            position:absolute;
-            left:48%;
-            top:36%;
+        .video{
+            padding-top: 10px;
+            margin:left 40px;
         }
 
-        .video{
-            padding-top: 30px;
-            margin:left 40px;
+        #videoName{
+            animation: rainbow 5s infinite alternate;
+        }
+
+        #prev{
+            position:absolute;
+            left:43%
+        }
+
+        #next{
+            position:absolute;
+            left:55%;
+            top:34.8%;
+        }
+
+        @keyframes rainbow {
+            from {color: rgb(249, 65, 68);}
+            15% {color: rgb(243, 114, 44);}
+            30% {color: rgb(248, 150, 30);}
+            45% {color: rgb(249, 199, 79);}
+            60% {color: rgb(144, 190, 109);}
+            85% {color: rgb(67, 170, 139);}
+            to {color: rgb(87, 117, 144);}
         }
     </style>
 </head>
@@ -184,8 +202,7 @@
     <h3><u>Loan Shark Inc.</u>
     <button id="loanButton">Beg for more volume</button>
     </h3>
-    <button id="videoButton">PLAY VIDEO</button>
-    <h3><button id="prev">PREV</button>Pump up the jams<button id="next">NEXT</button></h3>
+    <h3 id="videoName"><button id="prev">PREV</button><p id="currentVideo">Pump up the jams</p><button id="next">NEXT</button></h3>
     <video loop autoplay class="video" width=40%; height=40%;></video>
     <script>
         const gambleBtn = document.querySelector("#gambleButton");
@@ -200,17 +217,17 @@
         const winGifs = document.querySelector("#winGifs");
         const lossGifs = document.querySelector("#lossGifs");
         const video = document.querySelector("video");
-        const playButton = document.querySelector("#videoButton");
         const prevButton = document.querySelector("#prev");
         const nextButton = document.querySelector("#next");
+        const currentVideo = document.querySelector("#currentVideo");
         var source = document.createElement('source');
         video.appendChild(source);
         source.setAttribute('src', 'pumpUpTheJams.mp4');
         source.setAttribute('type', 'video/mp4');
         video.volume=0.04;
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
-        const vidArray = ["pumpUpTheJams.mp4","blue.mp4","beautifulLife.mp4"];
-        const srcArray = ["Pump Up The Jams","Blue (Da Ba Dee)","Beautiful Life"];
+        const vidArray = ["pumpUpTheJams.mp4","blue.mp4","beautifulLife.mp4","rickRoll.mp4","hookedOnAFeeling.mp4"];
+        const srcArray = ["Pump Up The Jams","Blue (Da Ba Dee)","Beautiful Life","Never Gonna Give You Up","Hooked On A Feeling"];
         let begCount = 0;
         let begAddon = 0;
         let currentVid = 0;
@@ -319,33 +336,30 @@
             }
         }
 
-        function playVid(){
-            video.play()
-        }
-
         function prevVid(){
             if (currentVid == 0){
-                currentVid = 2;
+                currentVid = 4;
             } else {
                 currentVid-=1;
             }
             source.setAttribute('src', vidArray[currentVid]);
+            currentVideo.textContent = srcArray[currentVid];
             video.load();
         }
 
         function nextVid(){
-            if (currentVid == 2){
+            if (currentVid == 4){
                 currentVid = 0;
             } else {
                 currentVid+=1;
             }
             source.setAttribute('src', vidArray[currentVid]);
+            currentVideo.textContent = srcArray[currentVid];
             video.load();
         }
 
         gambleBtn.addEventListener('click', function(){check()});
         loanBtn.addEventListener('click', function(){loanShark()});
-        playButton.addEventListener('click', function(){playVid()});
         prevButton.addEventListener('click', function(){prevVid()})
         nextButton.addEventListener('click', function(){nextVid()})
     </script>
