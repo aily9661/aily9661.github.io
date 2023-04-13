@@ -132,7 +132,6 @@
         @media (max-width: 500px){
             .win, .loss{height:15vh;top:95vh;width:30vw;}
             .win p, .loss p{font-size:4vw;}
-
         }
 
         #videoName{
@@ -270,7 +269,6 @@
             if (uGuess==='H' && diceRoll>=4) {
                 let winLoss = true;
                 delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
-
             } else if (uGuess==='H' && diceRoll<4) {
                 let winLoss = false;
                 delay(2010).then(() => volumeAdjust(winLoss, diceRoll));
