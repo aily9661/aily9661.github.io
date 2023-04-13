@@ -14,9 +14,10 @@
             width: 15vw;
             height: 80px;
             text-align: center;
+            margin-bottom: 30px;
         }
         .gambleDisplay{
-            padding-top: 8vh;
+            padding-top: 11vh;
         }
         .highLow{
             padding-top: 10px;
@@ -144,6 +145,7 @@
         #videoButton{
             position:absolute;
             left:48%;
+            top: 53%;
         }
 
         .video{
@@ -180,9 +182,14 @@
         <p id="winLossText"></p>
         <p id="diceRollAlert"></p>
     </div>
-    <h2><u>Loan Shark Inc.</u>
-    <button id="loanButton">Beg for more volume</button>
-    </h2>
+    <h3><u>Loan Shark Inc.</u>
+        <button id="loanButton">Beg for more volume</button>
+    </h3>
+    <h3>
+        <button id="previous">PREV</button>
+        Pump up the jams
+        <button id="next">NEXT</button>
+    </h3>
     <button id="videoButton">PLAY VIDEO</button>
     <video loop autoplay class="video">
         <source src="pumpUpTheJams.mp4" type="video/mp4">
@@ -200,11 +207,17 @@
         const winGifs = document.querySelector("#winGifs");
         const lossGifs = document.querySelector("#lossGifs");
         const video = document.querySelector("video");
-        const playButton = document.querySelector("#videoButton")
+        const playButton = document.querySelector("#videoButton");
+        const prevBtn = document.querySelector("#previous");
+        const nextBtn = document.querySelector("#next");
+        const source = document.querySelector("source");
         video.volume=0.04;
         const dyeArray = ["url('dyeImg/one.png')","url('dyeImg/two.png')","url('dyeImg/three.png')","url('dyeImg/four.png')","url('dyeImg/five.png')","url('dyeImg/six.png')"];
+        const vidSrcArray = ["pumpUpTheJams.mp4","blue.mp4","beautifulLife.mp4"];
+        const vidNameArray = ["Pump up the jams","Blue (Da Ba Dee)","Beautiful Life"];
         let begCount = 0;
         let begAddon = 0;
+        let currentVid = 0;
 
         /* I use this delay function to allow for a dice animation. I am using this delay function from author, Descope on "Mastering JS" https://masteringjs.io/tutorials/fundamentals/wait-1-second-then */
         function delay(time) {
@@ -312,6 +325,16 @@
 
         function playVid(){
             video.play()
+        }
+
+        function prevVid(){
+            currentVid-=1;
+            source.setAttribute("src",vidSrcArray[currentVid]);
+        }
+
+        function nextVid(){
+            currentVid+=1
+            source.setAttribute("src",vidSrcArray[currentVid]);
         }
 
         gambleBtn.addEventListener('click', function(){check()});
