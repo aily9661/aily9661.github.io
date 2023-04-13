@@ -8,15 +8,7 @@
     <style>
         body{background-color: rgb(254, 250, 224);font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;}
         .soundBar{
-            left:42.5%;
-            position: absolute;
-            border: 0.2em dashed grey;
-            width: 15vw;
-            height: 80px;
             text-align: center;
-        }
-        .gambleDisplay{
-            padding-top: 8vh;
         }
         .highLow{
             padding-top: 10px;
@@ -31,7 +23,9 @@
             height: 100px;
             width: 100px;
             margin-top: 10px;
-            margin-left: 48%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         #dyeAnimation {
             animation: diceRoll 1s infinite alternate;
@@ -140,24 +134,8 @@
             .win p, .loss p{font-size:4.5vw;}
         }
 
-        .video{
-            padding-top: 10px;
-            margin:left 40px;
-        }
-
         #videoName{
             animation: rainbow 5s infinite alternate;
-        }
-
-        #prev{
-            position:absolute;
-            left:43%
-        }
-
-        #next{
-            position:absolute;
-            left:55%;
-            top:34.8%;
         }
 
         @keyframes rainbow {
@@ -202,7 +180,13 @@
     <h3><u>Loan Shark Inc.</u>
     <button id="loanButton">Beg for more volume</button>
     </h3>
-    <h3 id="videoName"><button id="prev">PREV</button><p id="currentVideo">Pump up the jams</p><button id="next">NEXT</button></h3>
+    <h3 id="videoName"><p id="currentVideo">Pump up the jams</p></h3>
+    <p>
+        <button id="pause">PAUSE</button>
+        <button id="prev">PREV</button>
+        <button id="next">NEXT</button>
+        <button id="play">PLAY</button>
+    </p>
     <video loop autoplay class="video" width=40%; height=40%;></video>
     <script>
         const gambleBtn = document.querySelector("#gambleButton");
@@ -219,6 +203,8 @@
         const video = document.querySelector("video");
         const prevButton = document.querySelector("#prev");
         const nextButton = document.querySelector("#next");
+        const playButton = document.querySelector("#play")
+        const pauseButton = document.querySelector("#pause")
         const currentVideo = document.querySelector("#currentVideo");
         var source = document.createElement('source');
         video.appendChild(source);
@@ -358,10 +344,21 @@
             video.load();
         }
 
+        function playVid(){
+            video.play();
+        }
+
+        function pauseVid(){
+            video.pause();
+        }
+
         gambleBtn.addEventListener('click', function(){check()});
         loanBtn.addEventListener('click', function(){loanShark()});
-        prevButton.addEventListener('click', function(){prevVid()})
-        nextButton.addEventListener('click', function(){nextVid()})
+        prevButton.addEventListener('click', function(){prevVid()});
+        nextButton.addEventListener('click', function(){nextVid()});
+        playButton.addEventListener('click', function(){playVid()});
+        pauseButton.addEventListener('click', function(){pauseVid()});
+        video.play();
     </script>
 </body>
 </html>
