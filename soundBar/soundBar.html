@@ -134,7 +134,7 @@
             .win p, .loss p{font-size:4vw;}
         }
 
-        #videoName{
+        .videoName{
             animation: rainbow 5s infinite alternate;
         }
 
@@ -180,14 +180,14 @@
     <h3><u>Loan Shark Inc.</u>
     <button id="loanButton">Beg for more volume</button>
     </h3>
-    <h3 id="videoName"><p id="currentVideo">Pump up the jams</p></h3>
+    <h3 class="videoName" id="currentVideo">Pump up the jams</h3>
     <p>
         <button id="pause">PAUSE</button>
         <button id="prev">PREV</button>
         <button id="next">NEXT</button>
         <button id="play">PLAY</button>
     </p>
-    <video loop autoplay class="video" width=40%; height=40%;></video>
+    <video loop autoplay class="video" width=600px height=400px></video>
     <script>
         const gambleBtn = document.querySelector("#gambleButton");
         const loanBtn = document.querySelector("#loanButton");
