@@ -35,7 +35,7 @@
         <div class="one"><p id="gollum">Gollum (0.5/s): 1</p></div>
         <div class="two"><p id="goblins">Goblins (1/s): 0</p></div>
         <div class="three"><p id="dwarves">Dwarves (2/s): 0</p></div>
-        <div class="four">Four</div>
+        <div class="four">Hobbit (5/s)</div>
         <div class="five">Five</div>
         <div class="six">Six</div>
         <div class="seven">Seven</div>
@@ -52,20 +52,20 @@
         let dwarvesCount = 0;
         let currentMoney = 0;
         const goblinArray = [];
-        const goblin = new Goblin();
-        goblinArray.push(goblin);
+        /*const goblin = new Goblin();
+        goblinArray.push(goblin);*/
 
         function random(min, max) {
             const num = Math.floor(Math.random() * (max - min + 1)) + min;
             return num;
         }
 
-        class Goblin{
+        /*class Goblin{
             constructor(){
                 this.x = random(0,100);
                 this.y = random(0,100);
             }
-        }
+        }*/
 
         function increaseMoney(){
             /* increase money by character and multiplier */
@@ -85,7 +85,6 @@
                 gollum.textContent = (`Gollum (0.5/s): ${gollumCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
-            const goblin = new Goblin();
         }
 
         function updateGoblins(){
@@ -97,8 +96,8 @@
                 goblins.textContent = (`Goblins (1/s): ${goblinsCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
-            const goblin = new Goblin();
-            balls.push(goblin);
+            /*const goblin = new Goblin();
+            balls.push(goblin);*/
         }
 
         function updateDwarves(){
