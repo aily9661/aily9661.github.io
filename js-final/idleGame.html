@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{font-family: monospace;}
+    </style>
+</head>
+<body>
+    <h1 id="currentMoney">Current Money: 0</h1>
+    <p id="workers">Workers (1/s): 1</p>
+    <p id="farmers">Farmers (3/s): 0</p>
+    <p id="blacksmiths">Blacksmiths (5/s): 0</p>
+    <input class="work-purchase-button" type="button" name="work-purchase-button" value="Buy Worker $5">
+    <input class="farm-purchase-button" type="button" name="farm-purchase-button" value="Buy Farmer $15">
+    <input class="bs-purchase-button" type="button" name="bs-purchase-button" value="Buy Blacksmith $30">
+    <script>
+        let cm = document.querySelector('#currentMoney');
+        let work = document.querySelector('#workers');
+        let farm = document.querySelector('#farmers');
+        let bs = document.querySelector('#blacksmiths');
+        let workCount = 1;
+        let farmCount = 0;
+        let bsCount = 0;
+        let currentMoney = 0;
+
+        function increaseMoney(){
+            /* increase money by character and multiplier */
+            currentMoney += workCount;
+            currentMoney += farmCount*3;
+            currentMoney += bsCount*5;
+
+            cm.textContent = (`Current Money: ${currentMoney}`)
+        }
+
+        function updateWorker(){
+            /* increase worker count and decrease money if balance is sufficient */
+            let workCost = 5;
+            if (currentMoney>=workCost){
+                currentMoney-=workCost;
+                workCount+=1;
+                workers.textContent = (`Workers (1/s): ${workCount}`);
+                cm.textContent = (`Current Money: ${currentMoney}`)
+            }
+        }
+
+        function updateFarmer(){
+            /* increase worker count and decrease money if balance is sufficient */
+            let farmCost = 15;
+            if (currentMoney>=farmCost){
+                currentMoney-=farmCost;
+                farmCount+=1;
+                farmers.textContent = (`Farmers (3/s): ${farmCount}`);
+                cm.textContent = (`Current Money: ${currentMoney}`)
+            }
+        }
+
+        function updateBs(){
+            /* increase worker count and decrease money if balance is sufficient */
+            let bsCost = 30;
+            if (currentMoney>bsCost){
+                currentMoney-=bsCost;
+                bsCount+=1;
+                bs.textContent = (`Blacksmithss (5/s): ${bsCount}`);
+                cm.textContent = (`Current Money: ${currentMoney}`)
+            }
+        }
+
+        window.setInterval(increaseMoney, 1000); /* refresh money every second */
+        const workButton = document.querySelector('.work-purchase-button').addEventListener('click', updateWorker);
+        const farmButton = document.querySelector('.farm-purchase-button').addEventListener('click', updateFarmer);
+        const bsButton = document.querySelector('.bs-purchase-button').addEventListener('click', updateBs);
+    </script>
+</body>
+</html>
