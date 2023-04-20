@@ -6,17 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{font-family: monospace;}
+        body{font-family: monospace;text-align: center;}
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .one{grid-column: 1;grid-row: 1;}
+        .two{grid-column: 2;grid-row: 1;}
+        .three{grid-column: 3;grid-row: 1;}
+        .four{grid-column: 1;grid-row: 2;}
+        .five{grid-column: 2;grid-row: 2;}
+        .six{grid-column: 3;grid-row: 2;}
+        .seven{grid-column: 1;grid-row: 3;}
+        .eight{grid-column: 2;grid-row: 3;}
+        .nine{grid-column: 3;grid-row: 3;}
     </style>
 </head>
 <body>
     <h1 id="currentMoney">Current Money: 0</h1>
-    <p id="workers">Workers (1/s): 1</p>
-    <p id="farmers">Farmers (3/s): 0</p>
-    <p id="blacksmiths">Blacksmiths (5/s): 0</p>
     <input class="work-purchase-button" type="button" name="work-purchase-button" value="Buy Worker $5">
     <input class="farm-purchase-button" type="button" name="farm-purchase-button" value="Buy Farmer $15">
     <input class="bs-purchase-button" type="button" name="bs-purchase-button" value="Buy Blacksmith $30">
+    <div class="wrapper">
+        <div class="one"><p id="workers">Workers (1/s): 1</p></div>
+        <div class="two"><p id="farmers">Farmers (3/s): 0</p></div>
+        <div class="three"><p id="blacksmiths">Blacksmiths (5/s): 0</p></div>
+        <div class="four">Four</div>
+        <div class="five">Five</div>
+        <div class="six">Six</div>
+        <div class="seven">Seven</div>
+        <div class="eight">Five</div>
+        <div class="nine">Six</div>
+      </div>
     <script>
         let cm = document.querySelector('#currentMoney');
         let work = document.querySelector('#workers');
