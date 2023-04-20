@@ -28,13 +28,13 @@
 </head>
 <body>
     <h1 id="currentMoney">Current Money: 0</h1>
-    <input class="work-purchase-button" type="button" name="work-purchase-button" value="Buy Worker $5">
-    <input class="farm-purchase-button" type="button" name="farm-purchase-button" value="Buy Farmer $15">
-    <input class="bs-purchase-button" type="button" name="bs-purchase-button" value="Buy Blacksmith $30">
+    <input class="gollum-purchase-button" type="button" name="gollum-purchase-button" value="Buy Gollum $3">
+    <input class="goblins-purchase-button" type="button" name="goblins-purchase-button" value="Buy Goblin $10">
+    <input class="dwarves-purchase-button" type="button" name="dwarves-purchase-button" value="Buy Dwarf $30">
     <div class="wrapper">
-        <div class="one"><p id="workers">Workers (1/s): 1</p></div>
-        <div class="two"><p id="farmers">Farmers (3/s): 0</p></div>
-        <div class="three"><p id="blacksmiths">Blacksmiths (5/s): 0</p></div>
+        <div class="one"><p id="gollum">Gollum (0.5/s): 1</p></div>
+        <div class="two"><p id="goblins">Goblins (1/s): 0</p></div>
+        <div class="three"><p id="dwarves">Dwarves (2/s): 0</p></div>
         <div class="four">Four</div>
         <div class="five">Five</div>
         <div class="six">Six</div>
@@ -44,60 +44,60 @@
       </div>
     <script>
         let cm = document.querySelector('#currentMoney');
-        let work = document.querySelector('#workers');
-        let farm = document.querySelector('#farmers');
-        let bs = document.querySelector('#blacksmiths');
-        let workCount = 1;
-        let farmCount = 0;
-        let bsCount = 0;
+        let gollum = document.querySelector('#gollum');
+        let goblins = document.querySelector('#goblins');
+        let dwarves = document.querySelector('#dwarves');
+        let gollumCount = 1;
+        let goblinsCount = 0;
+        let dwarvesCount = 0;
         let currentMoney = 0;
 
         function increaseMoney(){
             /* increase money by character and multiplier */
-            currentMoney += workCount;
-            currentMoney += farmCount*3;
-            currentMoney += bsCount*5;
+            currentMoney += gollumCount*0.5;
+            currentMoney += goblinsCount*1;
+            currentMoney += dwarvesCount*2;
 
             cm.textContent = (`Current Money: ${currentMoney}`)
         }
 
-        function updateWorker(){
+        function updateGollum(){
             /* increase worker count and decrease money if balance is sufficient */
-            let workCost = 5;
-            if (currentMoney>=workCost){
-                currentMoney-=workCost;
-                workCount+=1;
-                workers.textContent = (`Workers (1/s): ${workCount}`);
+            let gollumCost = 3;
+            if (currentMoney>=gollumCost){
+                currentMoney-=gollumCost;
+                gollumCount+=1;
+                gollum.textContent = (`Gollum (0.5/s): ${gollumCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
         }
 
-        function updateFarmer(){
+        function updateGoblins(){
             /* increase worker count and decrease money if balance is sufficient */
-            let farmCost = 15;
-            if (currentMoney>=farmCost){
-                currentMoney-=farmCost;
-                farmCount+=1;
-                farmers.textContent = (`Farmers (3/s): ${farmCount}`);
+            let goblinsCost = 10;
+            if (currentMoney>=goblinsCost){
+                currentMoney-=goblinsCost;
+                goblinsCount+=1;
+                goblins.textContent = (`Goblins (1/s): ${goblinsCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
         }
 
-        function updateBs(){
+        function updateDwarves(){
             /* increase worker count and decrease money if balance is sufficient */
-            let bsCost = 30;
-            if (currentMoney>bsCost){
-                currentMoney-=bsCost;
-                bsCount+=1;
-                bs.textContent = (`Blacksmithss (5/s): ${bsCount}`);
+            let dwarvesCost = 30;
+            if (currentMoney>=dwarvesCost){
+                currentMoney-=dwarvesCost;
+                dwarvesCount+=1;
+                dwarves.textContent = (`Dwarves (2/s): ${dwarvesCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
         }
 
         window.setInterval(increaseMoney, 1000); /* refresh money every second */
-        const workButton = document.querySelector('.work-purchase-button').addEventListener('click', updateWorker);
-        const farmButton = document.querySelector('.farm-purchase-button').addEventListener('click', updateFarmer);
-        const bsButton = document.querySelector('.bs-purchase-button').addEventListener('click', updateBs);
+        const gollumButton = document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
+        const farmButton = document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
+        const bsButton = document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
     </script>
 </body>
 </html>
