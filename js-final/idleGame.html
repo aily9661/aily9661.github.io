@@ -51,6 +51,21 @@
         let goblinsCount = 0;
         let dwarvesCount = 0;
         let currentMoney = 0;
+        const goblinArray = [];
+        const goblin = new Goblin();
+        goblinArray.push(goblin);
+
+        function random(min, max) {
+            const num = Math.floor(Math.random() * (max - min + 1)) + min;
+            return num;
+        }
+
+        class Goblin{
+            constructor(){
+                this.x = random(0,100);
+                this.y = random(0,100);
+            }
+        }
 
         function increaseMoney(){
             /* increase money by character and multiplier */
@@ -70,6 +85,7 @@
                 gollum.textContent = (`Gollum (0.5/s): ${gollumCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
+            const goblin = new Goblin();
         }
 
         function updateGoblins(){
@@ -81,6 +97,8 @@
                 goblins.textContent = (`Goblins (1/s): ${goblinsCount}`);
                 cm.textContent = (`Current Money: ${currentMoney}`)
             }
+            const goblin = new Goblin();
+            balls.push(goblin);
         }
 
         function updateDwarves(){
