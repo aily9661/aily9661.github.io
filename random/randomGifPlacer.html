@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random GIF Placement</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .gif-container {
+      position: absolute;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="placeGifRandomly()">Place GIF randomly</button>
+
+  <script>
+    function placeGifRandomly() {
+      const gifUrl = 'https://media.giphy.com/media/l0HlvtIPzPdt2usKs/giphy.gif';
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+
+      const randomTop = Math.random() * windowHeight;
+      const randomLeft = Math.random() * windowWidth;
+
+      const gif = document.createElement('img');
+      gif.src = gifUrl;
+      gif.alt = 'GIF';
+      gif.style.position = 'absolute';
+      gif.style.top = `${randomTop}px`;
+      gif.style.left = `${randomLeft}px`;
+
+      document.body.appendChild(gif);
+    }
+  </script>
+</body>
+</html>

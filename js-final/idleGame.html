@@ -15,15 +15,16 @@
             grid-auto-rows: minmax(100px, auto);
         }
 
-        .one{grid-column: 1;grid-row: 1;}
-        .two{grid-column: 2;grid-row: 1;}
-        .three{grid-column: 3;grid-row: 1;}
-        .four{grid-column: 1;grid-row: 2;}
-        .five{grid-column: 2;grid-row: 2;}
-        .six{grid-column: 3;grid-row: 2;}
-        .seven{grid-column: 1;grid-row: 3;}
-        .eight{grid-column: 2;grid-row: 3;}
-        .nine{grid-column: 3;grid-row: 3;}
+        .one, .two, .three {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        img {
+          max-width: 50px;
+          margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -35,6 +36,7 @@
         <div class="one"><p id="gollum">Gollum (0.5/s): 1</p></div>
         <div class="two"><p id="goblins">Goblins (1/s): 0</p></div>
         <div class="three"><p id="dwarves">Dwarves (2/s): 0</p></div>
+<<<<<<< Updated upstream
         <div class="four">Hobbit (5/s)</div>
         <div class="five">Five</div>
         <div class="six">Six</div>
@@ -42,11 +44,24 @@
         <div class="eight">Five</div>
         <div class="nine">Six</div>
       </div>
+=======
+    </div>
+>>>>>>> Stashed changes
     <script>
+        function addGifToBox(box, gifUrl) {
+          const img = document.createElement('img');
+          img.src = gifUrl;
+          img.alt = 'Character GIF';
+          box.appendChild(img);
+        }
+
         let cm = document.querySelector('#currentMoney');
-        let gollum = document.querySelector('#gollum');
-        let goblins = document.querySelector('#goblins');
-        let dwarves = document.querySelector('#dwarves');
+        let gollumBox = document.querySelector('.one');
+        let goblinsBox = document.querySelector('.two');
+        let dwarvesBox = document.querySelector('.three');
+        let gollum = gollumBox.querySelector('#gollum');
+        let goblins = goblinsBox.querySelector('#goblins');
+        let dwarves = dwarvesBox.querySelector('#dwarves');
         let gollumCount = 1;
         let goblinsCount = 0;
         let dwarvesCount = 0;
@@ -67,54 +82,59 @@
             }
         }*/
 
-        function increaseMoney(){
-            /* increase money by character and multiplier */
-            currentMoney += gollumCount*0.5;
-            currentMoney += goblinsCount*1;
-            currentMoney += dwarvesCount*2;
+        addGifToBox(gollumBox, 'https://your-gollum-gif-url-here'); // Add initial Gollum GIF
 
-            cm.textContent = (`Current Money: ${currentMoney}`)
+        function increaseMoney(){
+            currentMoney += gollumCount * 0.5;
+            currentMoney += goblinsCount * 1;
+            currentMoney += dwarvesCount * 2;
+
+            cm.textContent = (`Current Money: ${currentMoney}`);
         }
 
-        function updateGollum(){
-            /* increase worker count and decrease money if balance is sufficient */
+        function updateGollum() {
             let gollumCost = 3;
-            if (currentMoney>=gollumCost){
-                currentMoney-=gollumCost;
-                gollumCount+=1;
-                gollum.textContent = (`Gollum (0.5/s): ${gollumCount}`);
-                cm.textContent = (`Current Money: ${currentMoney}`)
+            if (currentMoney >= gollumCost) {
+                currentMoney -= gollumCost;
+                gollumCount += 1;
+                gollum.textContent = `Gollum (0.5/s): ${gollumCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(gollumBox, 'gollum-thinking.gif');
             }
         }
 
-        function updateGoblins(){
-            /* increase worker count and decrease money if balance is sufficient */
+        function updateGoblins() {
             let goblinsCost = 10;
-            if (currentMoney>=goblinsCost){
-                currentMoney-=goblinsCost;
-                goblinsCount+=1;
-                goblins.textContent = (`Goblins (1/s): ${goblinsCount}`);
-                cm.textContent = (`Current Money: ${currentMoney}`)
+            if (currentMoney >= goblinsCost) {
+                currentMoney -= goblinsCost;
+                goblinsCount += 1;
+                goblins.textContent = `Goblins (1/s): ${goblinsCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(goblinsBox, 'gollum-thinking.gif');
             }
             /*const goblin = new Goblin();
             balls.push(goblin);*/
         }
 
-        function updateDwarves(){
-            /* increase worker count and decrease money if balance is sufficient */
+        function updateDwarves() {
             let dwarvesCost = 30;
-            if (currentMoney>=dwarvesCost){
-                currentMoney-=dwarvesCost;
-                dwarvesCount+=1;
-                dwarves.textContent = (`Dwarves (2/s): ${dwarvesCount}`);
-                cm.textContent = (`Current Money: ${currentMoney}`)
+            if (currentMoney >= dwarvesCost) {
+                currentMoney -= dwarvesCost;
+                dwarvesCount += 1;
+                dwarves.textContent = `Dwarves (2/s): ${dwarvesCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(dwarvesBox, 'gollum-thinking.gif');
             }
         }
 
-        window.setInterval(increaseMoney, 1000); /* refresh money every second */
-        const gollumButton = document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
-        const farmButton = document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
-        const bsButton = document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
+        document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
+        document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
+        document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
+
+        setInterval(increaseMoney, 1000);
     </script>
 </body>
 </html>
+
+
+        
