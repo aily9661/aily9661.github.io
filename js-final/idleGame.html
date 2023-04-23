@@ -37,6 +37,7 @@
             font-weight: bold;
             color: white;
             cursor: pointer;
+            touch-action: manipulation;
         }
 
         #purchase-button {
@@ -185,8 +186,8 @@
         function upgradeClick() { 
           if (currentMoney >= clickUpgradeCost) {
             currentMoney -= clickUpgradeCost;
-            clickUpgradeLevel++;
-            clickUpgradeCost *= 5;
+            clickUpgradeLevel+=2;
+            clickUpgradeCost *= 4;
             cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
             IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
             upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
@@ -196,15 +197,15 @@
         function doubleClick() { 
           if (currentMoney >= clickDoubleCost) {
             currentMoney -= clickDoubleCost;
-            clickDoubleLevel++;
-            clickDoubleCost *= 10;
+            clickDoubleLevel*=2;
+            clickDoubleCost *= 8;
             cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
             IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
             doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
           }
         }
 
-        document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
+        let gollBtn = document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
         document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
         document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
         document.querySelector('.humans-purchase-button').addEventListener('click', updateHumans);
