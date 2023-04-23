@@ -15,131 +15,116 @@
             grid-auto-rows: minmax(100px, auto);
         }
 
-        .box {
-            position: relative;
-            overflow: hidden;
+        .one, .two, .three {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .gif {
-            position: absolute;
-            width: 50px;
+        img {
+          max-width: 50px;
+          margin-bottom: 5px;
         }
-
     </style>
 </head>
 <body>
     <h1 id="currentMoney">Current Money: 0</h1>
-    <button class="increment-money-button">Click for $0.25</button>
-    <br>
-    <button class="gollum-purchase-button">Buy Gollum $3</button>
-    <button class="goblins-purchase-button">Buy Goblin $10</button>
-    <button class="dwarves-purchase-button">Buy Dwarf $30</button>
-    <button class="humans-purchase-button">Buy Human $300</button>
-    <button class="orcs-purchase-button">Buy Orc $1000</button>
-    <button class="elves-purchase-button">Buy Elf $2500</button>
+    <input class="gollum-purchase-button" type="button" name="gollum-purchase-button" value="Buy Gollum $3">
+    <input class="goblins-purchase-button" type="button" name="goblins-purchase-button" value="Buy Goblin $10">
+    <input class="dwarves-purchase-button" type="button" name="dwarves-purchase-button" value="Buy Dwarf $30">
     <div class="wrapper">
-        <div class="box one"><p id="gollum">Gollum (0.5/s): 0</p></div>
-        <div class="box two"><p id="goblins">Goblins (1/s): 0</p></div>
-        <div class="box three"><p id="dwarves">Dwarves (2/s): 0</p></div>
-        <div class="box four"><p id="humans">Humans (5/s): 0</p></div>
-        <div class="box five"><p id="orcs">Orcs (8/s): 0</p></div>
-        <div class="box six"><p id="elves">Elves (10/s): 0</p></div>
+        <div class="one"><p id="gollum">Gollum (0.5/s): 1</p></div>
+        <div class="two"><p id="goblins">Goblins (1/s): 0</p></div>
+        <div class="three"><p id="dwarves">Dwarves (2/s): 0</p></div>
     </div>
     <script>
-        const cm = document.querySelector('#currentMoney');
-        const gollum = document.querySelector('#gollum');
-        const goblins = document.querySelector('#goblins');
-        const dwarves = document.querySelector('#dwarves');
-        const humans = document.querySelector('#humans');
-        const orcs = document.querySelector('#orcs');
-        const elves = document.querySelector('#elves');
-        let gollumCount = 0;
-        let goblinsCount = 0;
-        let dwarvesCount = 0;
-        let humansCount = 0;
-        let orcsCount = 0;
-        let elvesCount = 0;
-        let currentMoney = 0;
-
-        const characterGifs = {
-          gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
-          goblin: 'https://media.tenor.com/LnVL5tNtUGUAAAAM/orc-yeah.gif',
-          dwarf: 'https://media.tenor.com/hXCWydcV70IAAAAM/lord-of-the-rings-john-rhys-davies.gif',
-          human: 'https://media.tenor.com/qft8fxjR598AAAAC/nods-viggo-mortensen.gif',
-          orc: 'https://media1.giphy.com/media/8v3WIOCM9Qy08/giphy.gif',
-          elf: 'https://media.tenor.com/mmFKcPzBAUUAAAAC/legolas-lord-of-the-rings.gif'
-        };
-
-        function incrementMoneyOnClick() {
-          currentMoney += 0.25;
-          cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-        }
-
-        function increaseMoney() {
-          currentMoney += gollumCount * 0.5;
-          currentMoney += goblinsCount * 1;
-          currentMoney += dwarvesCount * 2;
-          currentMoney += humansCount * 5;
-          currentMoney += orcsCount * 8;
-          currentMoney += elvesCount * 10;
-          cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-        }
-
-        function addGifToBox(parent, gifUrl) {
+        function addGifToBox(box, gifUrl) {
           const img = document.createElement('img');
           img.src = gifUrl;
-          img.classList.add('gif');
-          img.style.top = `${Math.floor(Math.random() * (parent.clientHeight - 50))}px`;
-          img.style.left = `${Math.floor(Math.random() * (parent.clientWidth - 50))}px`;
-          parent.appendChild(img);
+          img.alt = 'Character GIF';
+          box.appendChild(img);
         }
 
-        function updateCharacter(character, rate, cost, count, element, maxCount, gifUrl) {
-          if (currentMoney >= cost && count < maxCount) {
-            currentMoney -= cost;
-            count += 1;
-            element.textContent = `${character} (${rate}/s): ${count}`;
-            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-            addGifToBox(element.parentElement, gifUrl);
-            return count;
-          }
-          return count;
+        let cm = document.querySelector('#currentMoney');
+        let gollumBox = document.querySelector('.one');
+        let goblinsBox = document.querySelector('.two');
+        let dwarvesBox = document.querySelector('.three');
+        let gollum = gollumBox.querySelector('#gollum');
+        let goblins = goblinsBox.querySelector('#goblins');
+        let dwarves = dwarvesBox.querySelector('#dwarves');
+        let gollumCount = 1;
+        let goblinsCount = 0;
+        let dwarvesCount = 0;
+        let currentMoney = 0;
+        const goblinArray = [];
+        /*const goblin = new Goblin();
+        goblinArray.push(goblin);*/
+
+        function random(min, max) {
+            const num = Math.floor(Math.random() * (max - min + 1)) + min;
+            return num;
+        }
+
+        /*class Goblin{
+            constructor(){
+                this.x = random(0,100);
+                this.y = random(0,100);
+            }
+        }*/
+
+        addGifToBox(gollumBox, 'https://your-gollum-gif-url-here'); // Add initial Gollum GIF
+
+        function increaseMoney(){
+            currentMoney += gollumCount * 0.5;
+            currentMoney += goblinsCount * 1;
+            currentMoney += dwarvesCount * 2;
+
+            cm.textContent = (`Current Money: ${currentMoney}`);
         }
 
         function updateGollum() {
-          gollumCount = updateCharacter('Gollum', '0.5', 3, gollumCount, gollum, 20, characterGifs.gollum);
+            let gollumCost = 3;
+            if (currentMoney >= gollumCost) {
+                currentMoney -= gollumCost;
+                gollumCount += 1;
+                gollum.textContent = `Gollum (0.5/s): ${gollumCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(gollumBox, 'gollum-thinking.gif');
+            }
         }
 
         function updateGoblins() {
-          goblinsCount = updateCharacter('Goblins', '1', 10, goblinsCount, goblins, 20, characterGifs.goblin);
+            let goblinsCost = 10;
+            if (currentMoney >= goblinsCost) {
+                currentMoney -= goblinsCost;
+                goblinsCount += 1;
+                goblins.textContent = `Goblins (1/s): ${goblinsCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(goblinsBox, 'gollum-thinking.gif');
+            }
+            /*const goblin = new Goblin();
+            balls.push(goblin);*/
         }
 
         function updateDwarves() {
-          dwarvesCount = updateCharacter('Dwarves', '2', 30, dwarvesCount, dwarves, 20, characterGifs.dwarf);
+            let dwarvesCost = 30;
+            if (currentMoney >= dwarvesCost) {
+                currentMoney -= dwarvesCost;
+                dwarvesCount += 1;
+                dwarves.textContent = `Dwarves (2/s): ${dwarvesCount}`;
+                cm.textContent = `Current Money: ${currentMoney}`;
+                addGifToBox(dwarvesBox, 'gollum-thinking.gif');
+            }
         }
 
-        function updateHumans() {
-          humansCount = updateCharacter('Humans', '5', 300, humansCount, humans, 20, characterGifs.human);
-        }
-
-        function updateOrcs() {
-          orcsCount = updateCharacter('Orcs', '8', 1000, orcsCount, orcs, 20, characterGifs.orc);
-        }
-
-        function updateElves() {
-          elvesCount = updateCharacter('Elves', '10', 2500, elvesCount, elves, 20, characterGifs.elf);
-        }
-
-        window.setInterval(increaseMoney, 1000);
-
-        document.querySelector('.increment-money-button').addEventListener('click', incrementMoneyOnClick);
         document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
         document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
         document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
-        document.querySelector('.humans-purchase-button').addEventListener('click', updateHumans);
-        document.querySelector('.orcs-purchase-button').addEventListener('click', updateOrcs);
-        document.querySelector('.elves-purchase-button').addEventListener('click', updateElves);
+
+        setInterval(increaseMoney, 1000);
     </script>
-  </body>
+</body>
 </html>
 
+
+        
