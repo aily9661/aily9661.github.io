@@ -49,6 +49,16 @@
             cursor: pointer;
         }
 
+        .upgrade-button {
+            background-color: red;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -65,6 +75,9 @@
         <button class="wizards-purchase-button" id="purchase-button">Buy Wizard $10000</button>
         <button class="balrogs-purchase-button" id="purchase-button">Buy Balrog $25000</button>
         <button class="rings-purchase-button" id="purchase-button">Buy The Ring $100000</button>
+    <br>
+    <button class="upgrade-button" id="upgrade-click-button">Upgrade Click $15</button>
+    <button class="upgrade-button" id="double-click-button">Double Click $50</button>
     <div class="wrapper">
         <div class="box one"><p id="gollum">Gollum (0.5/s): 0</p></div>
         <div class="box two"><p id="goblins">Goblins (1/s): 0</p></div>
@@ -88,6 +101,9 @@
         const balrogs = document.querySelector('#balrogs');
         const rings = document.querySelector('#ring')
         const moneyRate = document.querySelector('#moneyRate');
+        const upgradeClickButton = document.querySelector('#upgrade-click-button');
+        const IMB = document.querySelector('.increment-money-button')
+        const doubleClickButton = document.querySelector('#double-click-button')
         let gollumCount = 0;
         let goblinsCount = 0;
         let dwarvesCount = 0;
@@ -98,6 +114,10 @@
         let balrogsCount = 0;
         let ringsCount = 0;
         let currentMoney = 0;
+        let clickUpgradeCost = 15;
+        let clickUpgradeLevel = 1;
+        let clickDoubleLevel = 1;
+        let clickDoubleCost = 50;
 
         const characterGifs = {
           gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
@@ -112,7 +132,7 @@
         };
 
         function incrementMoneyOnClick() {
-            currentMoney += 0.25;
+            currentMoney += 0.25*clickUpgradeLevel*clickDoubleLevel;
             cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
         }
 
@@ -162,7 +182,28 @@
 
         function updateRings() {ringsCount = updateCharacter('Rings', '100', 100000, ringsCount, rings, 1, characterGifs.ring);}
 
-        document.querySelector('.increment-money-button').addEventListener('click', incrementMoneyOnClick);
+        function upgradeClick() { 
+          if (currentMoney >= clickUpgradeCost) {
+            currentMoney -= clickUpgradeCost;
+            clickUpgradeLevel++;
+            clickUpgradeCost *= 5;
+            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+            IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
+            upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
+          }
+        }
+
+        function doubleClick() { 
+          if (currentMoney >= clickDoubleCost) {
+            currentMoney -= clickDoubleCost;
+            clickDoubleLevel++;
+            clickDoubleCost *= 10;
+            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+            IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
+            doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
+          }
+        }
+
         document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
         document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
         document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
@@ -172,6 +213,9 @@
         document.querySelector('.wizards-purchase-button').addEventListener('click', updateWizards);
         document.querySelector('.balrogs-purchase-button').addEventListener('click', updateBalrogs);
         document.querySelector('.rings-purchase-button').addEventListener('click', updateRings);
+        upgradeClickButton.addEventListener('click', upgradeClick);
+        doubleClickButton.addEventListener('click', doubleClick);
+        IMB.addEventListener('click', incrementMoneyOnClick);
 
         window.setInterval(increaseMoney, 1000);
 
