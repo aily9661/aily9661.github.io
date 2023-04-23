@@ -15,116 +15,142 @@
             grid-auto-rows: minmax(100px, auto);
         }
 
-        .one, .two, .three {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        .box {
+            position: relative;
+            overflow: hidden;
         }
 
-        img {
-          max-width: 50px;
-          margin-bottom: 5px;
+        .gif {
+            position: absolute;
+            width: 50px;
         }
+
+        .increment-money-button {
+            display: inline-block;
+            width: 125px;
+            height: 125px;
+            background-color: green;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        #purchase-button {
+            background-color: blue;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <h1 id="currentMoney">Current Money: 0</h1>
-    <input class="gollum-purchase-button" type="button" name="gollum-purchase-button" value="Buy Gollum $3">
-    <input class="goblins-purchase-button" type="button" name="goblins-purchase-button" value="Buy Goblin $10">
-    <input class="dwarves-purchase-button" type="button" name="dwarves-purchase-button" value="Buy Dwarf $30">
+    <h2 id="moneyRate">Rate: 0/s</h2>
+    <button class="increment-money-button">Click for $0.25</button>
+    <br>
+        <button class="gollum-purchase-button" id="purchase-button">Buy Gollum $3</button>
+        <button class="goblins-purchase-button" id="purchase-button">Buy Goblin $10</button>
+        <button class="dwarves-purchase-button" id="purchase-button">Buy Dwarf $30</button>
+        <button class="humans-purchase-button" id="purchase-button">Buy Human $300</button>
+        <button class="orcs-purchase-button" id="purchase-button">Buy Orc $1000</button>
+        <button class="elves-purchase-button" id="purchase-button">Buy Elf $2500</button>
     <div class="wrapper">
-        <div class="one"><p id="gollum">Gollum (0.5/s): 1</p></div>
-        <div class="two"><p id="goblins">Goblins (1/s): 0</p></div>
-        <div class="three"><p id="dwarves">Dwarves (2/s): 0</p></div>
+        <div class="box one"><p id="gollum">Gollum (0.5/s): 0</p></div>
+        <div class="box two"><p id="goblins">Goblins (1/s): 0</p></div>
+        <div class="box three"><p id="dwarves">Dwarves (2/s): 0</p></div>
+        <div class="box four"><p id="humans">Humans (5/s): 0</p></div>
+        <div class="box five"><p id="orcs">Orcs (8/s): 0</p></div>
+        <div class="box six"><p id="elves">Elves (10/s): 0</p></div>
     </div>
     <script>
-        function addGifToBox(box, gifUrl) {
-          const img = document.createElement('img');
-          img.src = gifUrl;
-          img.alt = 'Character GIF';
-          box.appendChild(img);
-        }
-
-        let cm = document.querySelector('#currentMoney');
-        let gollumBox = document.querySelector('.one');
-        let goblinsBox = document.querySelector('.two');
-        let dwarvesBox = document.querySelector('.three');
-        let gollum = gollumBox.querySelector('#gollum');
-        let goblins = goblinsBox.querySelector('#goblins');
-        let dwarves = dwarvesBox.querySelector('#dwarves');
-        let gollumCount = 1;
+        const cm = document.querySelector('#currentMoney');
+        const gollum = document.querySelector('#gollum');
+        const goblins = document.querySelector('#goblins');
+        const dwarves = document.querySelector('#dwarves');
+        const humans = document.querySelector('#humans');
+        const orcs = document.querySelector('#orcs');
+        const elves = document.querySelector('#elves');
+        const moneyRate = document.querySelector('#moneyRate');
+        let gollumCount = 0;
         let goblinsCount = 0;
         let dwarvesCount = 0;
+        let humansCount = 0;
+        let orcsCount = 0;
+        let elvesCount = 0;
         let currentMoney = 0;
-        const goblinArray = [];
-        /*const goblin = new Goblin();
-        goblinArray.push(goblin);*/
 
-        function random(min, max) {
-            const num = Math.floor(Math.random() * (max - min + 1)) + min;
-            return num;
+        const characterGifs = {
+          gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
+          goblin: 'https://media.tenor.com/yqQn4NUEakAAAAAC/goblin-creature.gif',
+          dwarf: 'https://media.tenor.com/hXCWydcV70IAAAAM/lord-of-the-rings-john-rhys-davies.gif',
+          human: 'https://media.tenor.com/JCgXIK1kjyMAAAAM/viggo-viggo-mortensen.gif',
+          orc: 'https://media1.giphy.com/media/8v3WIOCM9Qy08/giphy.gif',
+          elf: 'https://i.pinimg.com/originals/35/4f/0f/354f0f5344e29b53520ea867c952b79c.gif'
+        };
+
+        function incrementMoneyOnClick() {
+            currentMoney += 0.25;
+            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
         }
 
-        /*class Goblin{
-            constructor(){
-                this.x = random(0,100);
-                this.y = random(0,100);
-            }
-        }*/
-
-        addGifToBox(gollumBox, 'https://your-gollum-gif-url-here'); // Add initial Gollum GIF
-
-        function increaseMoney(){
-            currentMoney += gollumCount * 0.5;
-            currentMoney += goblinsCount * 1;
-            currentMoney += dwarvesCount * 2;
-
-            cm.textContent = (`Current Money: ${currentMoney}`);
+        function increaseMoney() {
+            totRate = gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10;
+            currentMoney += totRate;
+            moneyRate.textContent = `Rate: ${totRate}/s`
+            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
         }
 
-        function updateGollum() {
-            let gollumCost = 3;
-            if (currentMoney >= gollumCost) {
-                currentMoney -= gollumCost;
-                gollumCount += 1;
-                gollum.textContent = `Gollum (0.5/s): ${gollumCount}`;
-                cm.textContent = `Current Money: ${currentMoney}`;
-                addGifToBox(gollumBox, 'gollum-thinking.gif');
-            }
+        function addGifToBox(parent, gifUrl) {
+            const img = document.createElement('img');
+            img.src = gifUrl;
+            img.classList.add('gif');
+            img.style.top = `${Math.floor(Math.random() * (parent.clientHeight - 50))+25}px`;
+            img.style.left = `${Math.floor(Math.random() * (parent.clientWidth - 50))}px`;
+            parent.appendChild(img);
         }
 
-        function updateGoblins() {
-            let goblinsCost = 10;
-            if (currentMoney >= goblinsCost) {
-                currentMoney -= goblinsCost;
-                goblinsCount += 1;
-                goblins.textContent = `Goblins (1/s): ${goblinsCount}`;
-                cm.textContent = `Current Money: ${currentMoney}`;
-                addGifToBox(goblinsBox, 'gollum-thinking.gif');
-            }
-            /*const goblin = new Goblin();
-            balls.push(goblin);*/
+        function updateCharacter(character, rate, cost, count, element, maxCount, gifUrl) {
+        if (currentMoney >= cost && count < maxCount) {
+            currentMoney -= cost;
+            count += 1;
+            element.textContent = `${character} (${rate}/s): ${count}`;
+            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+            addGifToBox(element.parentElement, gifUrl);
+            return count;
+        }
+        return count;
         }
 
-        function updateDwarves() {
-            let dwarvesCost = 30;
-            if (currentMoney >= dwarvesCost) {
-                currentMoney -= dwarvesCost;
-                dwarvesCount += 1;
-                dwarves.textContent = `Dwarves (2/s): ${dwarvesCount}`;
-                cm.textContent = `Current Money: ${currentMoney}`;
-                addGifToBox(dwarvesBox, 'gollum-thinking.gif');
-            }
-        }
+        function updateGollum() {gollumCount = updateCharacter('Gollum', '0.5', 3, gollumCount, gollum, 20, characterGifs.gollum);}
 
+        function updateGoblins() {goblinsCount = updateCharacter('Goblins', '1', 10, goblinsCount, goblins, 20, characterGifs.goblin);}
+
+        function updateDwarves() {dwarvesCount = updateCharacter('Dwarves', '2', 30, dwarvesCount, dwarves, 20, characterGifs.dwarf);}
+
+        function updateHumans() {humansCount = updateCharacter('Humans', '5', 300, humansCount, humans, 20, characterGifs.human);}
+
+        function updateOrcs() {orcsCount = updateCharacter('Orcs', '8', 1000, orcsCount, orcs, 20, characterGifs.orc);}
+
+        function updateElves() {elvesCount = updateCharacter('Elves', '10', 2500, elvesCount, elves, 20, characterGifs.elf);}
+
+        document.querySelector('.increment-money-button').addEventListener('click', incrementMoneyOnClick);
         document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
         document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
         document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
+        document.querySelector('.humans-purchase-button').addEventListener('click', updateHumans);
+        document.querySelector('.orcs-purchase-button').addEventListener('click', updateOrcs);
+        document.querySelector('.elves-purchase-button').addEventListener('click', updateElves);
 
-        setInterval(increaseMoney, 1000);
-    </script>
+        window.setInterval(increaseMoney, 1000);
+
+</script>
 </body>
 </html>
-
-
-        
