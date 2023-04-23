@@ -62,6 +62,9 @@
         <button class="humans-purchase-button" id="purchase-button">Buy Human $300</button>
         <button class="orcs-purchase-button" id="purchase-button">Buy Orc $1000</button>
         <button class="elves-purchase-button" id="purchase-button">Buy Elf $2500</button>
+        <button class="wizards-purchase-button" id="purchase-button">Buy Wizard $10000</button>
+        <button class="balrogs-purchase-button" id="purchase-button">Buy Balrog $25000</button>
+        <button class="rings-purchase-button" id="purchase-button">Buy The Ring $100000</button>
     <div class="wrapper">
         <div class="box one"><p id="gollum">Gollum (0.5/s): 0</p></div>
         <div class="box two"><p id="goblins">Goblins (1/s): 0</p></div>
@@ -69,6 +72,9 @@
         <div class="box four"><p id="humans">Humans (5/s): 0</p></div>
         <div class="box five"><p id="orcs">Orcs (8/s): 0</p></div>
         <div class="box six"><p id="elves">Elves (10/s): 0</p></div>
+        <div class="box seven"><p id="wizards">Wizard (15/s): 0</p></div>
+        <div class="box eight"><p id="balrogs">Balrogs (25/s): 0</p></div>
+        <div class="box nine"><p id="ring">The Ring (100/s): 0</p></div>
     </div>
     <script>
         const cm = document.querySelector('#currentMoney');
@@ -78,6 +84,9 @@
         const humans = document.querySelector('#humans');
         const orcs = document.querySelector('#orcs');
         const elves = document.querySelector('#elves');
+        const wizards = document.querySelector('#wizards');
+        const balrogs = document.querySelector('#balrogs');
+        const rings = document.querySelector('#ring')
         const moneyRate = document.querySelector('#moneyRate');
         let gollumCount = 0;
         let goblinsCount = 0;
@@ -85,6 +94,9 @@
         let humansCount = 0;
         let orcsCount = 0;
         let elvesCount = 0;
+        let wizardsCount = 0;
+        let balrogsCount = 0;
+        let ringsCount = 0;
         let currentMoney = 0;
 
         const characterGifs = {
@@ -93,7 +105,10 @@
           dwarf: 'https://media.tenor.com/hXCWydcV70IAAAAM/lord-of-the-rings-john-rhys-davies.gif',
           human: 'https://media.tenor.com/JCgXIK1kjyMAAAAM/viggo-viggo-mortensen.gif',
           orc: 'https://media1.giphy.com/media/8v3WIOCM9Qy08/giphy.gif',
-          elf: 'https://i.pinimg.com/originals/35/4f/0f/354f0f5344e29b53520ea867c952b79c.gif'
+          elf: 'https://i.pinimg.com/originals/35/4f/0f/354f0f5344e29b53520ea867c952b79c.gif',
+          wizard: 'https://media3.giphy.com/media/TcdpZwYDPlWXC/giphy.gif',
+          balrog: 'https://media.tenor.com/5GVnhP7_4FQAAAAM/lord-of-the-rings-gandalf.gif',
+          ring: 'https://i.gifer.com/SxTm.gif'
         };
 
         function incrementMoneyOnClick() {
@@ -102,7 +117,7 @@
         }
 
         function increaseMoney() {
-            totRate = gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10;
+            totRate = gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10 + wizardsCount * 15 + balrogsCount * 25 + ringsCount * 100;
             currentMoney += totRate;
             moneyRate.textContent = `Rate: ${totRate}/s`
             cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
@@ -141,6 +156,12 @@
 
         function updateElves() {elvesCount = updateCharacter('Elves', '10', 2500, elvesCount, elves, 20, characterGifs.elf);}
 
+        function updateWizards() {wizardsCount = updateCharacter('Wizards', '15', 10000, wizardsCount, wizards, 20, characterGifs.wizard);}
+
+        function updateBalrogs() {balrogsCount = updateCharacter('Balrogs', '25', 25000, balrogssCount, balrogs, 20, characterGifs.balrog);}
+
+        function updateRings() {ringsCount = updateCharacter('Rings', '100', 100000, ringsCount, rings, 1, characterGifs.ring);}
+
         document.querySelector('.increment-money-button').addEventListener('click', incrementMoneyOnClick);
         document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
         document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
@@ -148,6 +169,9 @@
         document.querySelector('.humans-purchase-button').addEventListener('click', updateHumans);
         document.querySelector('.orcs-purchase-button').addEventListener('click', updateOrcs);
         document.querySelector('.elves-purchase-button').addEventListener('click', updateElves);
+        document.querySelector('.wizards-purchase-button').addEventListener('click', updateWizards);
+        document.querySelector('.balrogs-purchase-button').addEventListener('click', updateBalrogs);
+        document.querySelector('.rings-purchase-button').addEventListener('click', updateRings);
 
         window.setInterval(increaseMoney, 1000);
 
