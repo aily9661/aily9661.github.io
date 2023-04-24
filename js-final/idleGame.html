@@ -8,7 +8,7 @@
     <style>
         body{font-family: monospace;text-align: center;}
 
-        .wrapper {
+        .gridParent {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
@@ -17,7 +17,6 @@
 
         .box {
             position: relative;
-            overflow: hidden;
         }
 
         .gif {
@@ -83,16 +82,16 @@
     <br>
     <button class="upgrade-button" id="upgrade-click-button">Upgrade Click $15</button>
     <button class="upgrade-button" id="double-click-button">Double Click $50</button>
-    <div class="wrapper">
-        <div class="box one"><p id="gollum">Gollum (0.5/s): 0</p></div>
-        <div class="box two"><p id="goblins">Goblins (1/s): 0</p></div>
-        <div class="box three"><p id="dwarves">Dwarves (2/s): 0</p></div>
-        <div class="box four"><p id="humans">Humans (5/s): 0</p></div>
-        <div class="box five"><p id="orcs">Orcs (8/s): 0</p></div>
-        <div class="box six"><p id="elves">Elves (10/s): 0</p></div>
-        <div class="box seven"><p id="wizards">Wizard (15/s): 0</p></div>
-        <div class="box eight"><p id="balrogs">Balrogs (25/s): 0</p></div>
-        <div class="box nine"><p id="ring">The Ring (100/s): 0</p></div>
+    <div class="gridParent">
+        <div class="box"><p id="gollum">Gollum (0.5/s): 0</p></div>
+        <div class="box"><p id="goblins">Goblins (1/s): 0</p></div>
+        <div class="box"><p id="dwarves">Dwarves (2/s): 0</p></div>
+        <div class="box"><p id="humans">Humans (5/s): 0</p></div>
+        <div class="box"><p id="orcs">Orcs (8/s): 0</p></div>
+        <div class="box"><p id="elves">Elves (10/s): 0</p></div>
+        <div class="box"><p id="wizards">Wizard (15/s): 0</p></div>
+        <div class="box"><p id="balrogs">Balrogs (25/s): 0</p></div>
+        <div class="box"><p id="ring">The Ring (100/s): 0</p></div>
     </div>
     <script>
         const cm = document.querySelector('#currentMoney');
@@ -158,15 +157,15 @@
         }
 
         function updateCharacter(character, rate, cost, count, element, maxCount, gifUrl) {
-        if (currentMoney >= cost && count < maxCount) {
-            currentMoney -= cost;
-            count += 1;
-            element.textContent = `${character} (${rate}/s): ${count}`;
-            cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-            addGifToBox(element.parentElement, gifUrl);
+            if (currentMoney >= cost && count < maxCount) {
+                currentMoney -= cost;
+                count += 1;
+                element.textContent = `${character} (${rate}/s): ${count}`;
+                cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+                addGifToBox(element.parentElement, gifUrl);
+                return count;
+            }
             return count;
-        }
-        return count;
         }
 
         function updateGollum() {gollumCount = updateCharacter('Gollum', '0.5', 3, gollumCount, gollum, 20, characterGifs.gollum);}
@@ -224,6 +223,20 @@
 
         window.setInterval(increaseMoney, 1000);
 
-</script>
-</body>
+        /* Inspiration I took:
+        Helful Sources I used: 
+        A lot of my code was original and learned from previous projects in class. However there was three things
+        that I needed help to create. For the random gif generator I used MDN documentation. Specifically these sites:
+        Element positioning with CSS: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+        Creating and manipulating elements with JavaScript: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Manipulating_the_browser_DOM
+        
+        Another thing I was stuck on was how to incrementally increase the money. For that I used setInterval and I learned about how to use it from a user on Stack overflow:
+        Sidewalksalsa from stack overflow: https://stackoverflow.com/questions/40711300/javascript-do-something-every-n-seconds
+
+        The last thing I needed help on was making it mobile friendly. Initially my project looked great on mobile but didn't function well. This was because when you would double tap elements it would zoom in. I used this post from stack overflow to overcome that:
+        Ross Allen edited by Abdull on stack overflow: https://stackoverflow.com/questions/10614481/disable-double-tap-zoom-option-in-browser-on-touch-devices
+        */
+
+        </script>
+    </body>
 </html>
