@@ -1,0 +1,51 @@
+body{font-family: monospace;text-align: center;font-size: 14px;}
+
+.gridParent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.box {position: relative;}
+
+.gif {position: absolute;width: 50px;}
+
+.increment-money-button {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    background-color: rgb(181, 132, 0);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+#purchase-button button{
+    background-color: rgb(36, 123, 160);
+    font-size: 14px;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.upgrade-button {
+    background-color: rgb(157, 6, 9);
+    font-size: 14px;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    touch-action: manipulation;
+}
