@@ -10,22 +10,12 @@ const balrogs = document.querySelector('#balrogs');
 const rings = document.querySelector('#ring')
 const moneyRate = document.querySelector('#moneyRate');
 const upgradeClickButton = document.querySelector('#upgrade-click-button');
-const IMB = document.querySelector('.increment-money-button')
-const doubleClickButton = document.querySelector('#double-click-button')
-let gollumCount = 0;
-let goblinsCount = 0;
-let dwarvesCount = 0;
-let humansCount = 0;
-let orcsCount = 0;
-let elvesCount = 0;
-let wizardsCount = 0;
-let balrogsCount = 0;
-let ringsCount = 0;
-let currentMoney = 0;
+const IMB = document.querySelector('.increment-money-button');
+const doubleClickButton = document.querySelector('#double-click-button');
+let currentMoney = gollumCount = goblinsCount = dwarvesCount = humansCount = orcsCount = elvesCount = wizardsCount = balrogsCount = ringsCount = 0;
 let clickUpgradeCost = 15;
-let clickUpgradeLevel = 1;
-let clickDoubleLevel = 1;
 let clickDoubleCost = 50;
+let clickUpgradeLevel = clickDoubleLevel = 1;
 
 const characterGifs = {
   gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
@@ -47,7 +37,7 @@ function incrementMoneyOnClick() {
 function increaseMoney() {
     totRate = gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10 + wizardsCount * 15 + balrogsCount * 25 + ringsCount * 100;
     currentMoney += totRate;
-    moneyRate.textContent = `Rate: ${totRate}/s`
+    moneyRate.textContent = `Rate: ${totRate}/s`;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
 }
 
@@ -96,7 +86,7 @@ function upgradeClick() {
     clickUpgradeLevel+=2;
     clickUpgradeCost *= 4;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
+    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`;
     upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
   }
 }
@@ -107,7 +97,7 @@ function doubleClick() {
     clickDoubleLevel*=2;
     clickDoubleCost *= 8;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`
+    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`;
     doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
   }
 }
