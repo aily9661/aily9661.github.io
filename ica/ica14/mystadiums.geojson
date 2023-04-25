@@ -1,0 +1,165 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -0.293309,51.551494 ]
+    },
+    "properties": {
+    "stadium":"Wembley, London",
+    "year":2002,
+    "capacity":90000,
+    "highest attendance":89826,
+    "match":"Chelsea v Man United 19/05/2007",
+    "stadium_loc":"Wembley, London, England, United Kingdom",
+    "cost":974000000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -2.285719,53.459961 ]
+    },
+    "properties": {
+    "stadium":"Old Trafford, Manchester",
+    "year":1909,
+    "capacity":75635,
+    "highest attendance":76962,
+    "match":"Wolves v Grimsby 25/03/1939",
+    "stadium_loc":"Old Trafford, Manchester, England, United Kingdom",
+    "cost":90000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -3.182758,51.478285 ]
+    },
+    "properties": {
+    "stadium":"Principality Stadium, Cardiff",
+    "year":1997,
+    "capacity":74500,
+    "highest attendance":72500,
+    "match":"Wales v Italy 16/10/2002",
+    "stadium_loc":"Principality Stadium, Cardiff County, Wales, United Kingdom",
+    "cost":121000000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -9.299015,53.851859 ]
+    },
+    "properties": {
+    "stadium":"Celtic Park, Glasgow",
+    "year":1892,
+    "capacity":60411,
+    "highest attendance":83500,
+    "match":"Celtic v Rangers 01/01/1938",
+    "stadium_loc":"Celtic Park, Castlebar, Ireland",
+    "cost":35000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -0.108269,51.555002 ]
+    },
+    "properties": {
+    "stadium":"The Emirates, London",
+    "year":2004,
+    "capacity":60260,
+    "highest attendance":60161,
+    "match":"Arsenal v Man United 03/11/2007",
+    "stadium_loc":"Emirates Stadium, London, England, United Kingdom",
+    "cost":470000000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -0.014428,51.542967 ]
+    },
+    "properties": {
+    "stadium":"Olympic Stadium, London",
+    "year":2007,
+    "capacity":60000,
+    "highest attendance":80000,
+    "match":"London Olympics 2012",
+    "stadium_loc":"Olympic Stadium, London, England, United Kingdom",
+    "cost":534000000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -2.200281,53.48315 ]
+    },
+    "properties": {
+    "stadium":"The Etihad, Manchester",
+    "year":1999,
+    "capacity":55097,
+    "highest attendance":54693,
+    "match":"Man City v Leicester 06/02/2016",
+    "stadium_loc":"Etihad Stadium, Manchester, England, United Kingdom",
+    "cost":134000000
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -2.958449,53.430653 ]
+    },
+    "properties": {
+    "stadium":"Anfield, Liverpool",
+    "year":1884,
+    "capacity":54000,
+    "highest attendance":61905,
+    "match":"Liverpool v Wolves 02/02/1952",
+    "stadium_loc":"Anfield, Liverpool, England, United Kingdom",
+    "cost":0
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -1.622114,54.975625 ]
+    },
+    "properties": {
+    "stadium":"St James' Park, Newcastle",
+    "year":1892,
+    "capacity":52405,
+    "highest attendance":68386,
+    "match":"Newcastle v Chelsea 03/09/1930",
+    "stadium_loc":"St James' Park, Newcastle upon Tyne, England, United Kingdom",
+    "cost":0
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.252095,55.825823 ]
+    },
+    "properties": {
+    "stadium":"Hampden Park, Glasgow",
+    "year":1903,
+    "capacity":51866,
+    "highest attendance":149547,
+    "match":"Scotland v England 17/04/1937",
+    "stadium_loc":"Hampden Park, Glasgow, Scotland, United Kingdom",
+    "cost":0
+    }
+  }
+]
+}
