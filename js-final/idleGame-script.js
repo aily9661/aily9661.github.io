@@ -12,10 +12,13 @@ const moneyRate = document.querySelector('#moneyRate');
 const upgradeClickButton = document.querySelector('#upgrade-click-button');
 const IMB = document.querySelector('.increment-money-button');
 const doubleClickButton = document.querySelector('#double-click-button');
+const resetButton = document.querySelector('#reset-button')
 let currentMoney = gollumCount = goblinsCount = dwarvesCount = humansCount = orcsCount = elvesCount = wizardsCount = balrogsCount = ringsCount = 0;
 let clickUpgradeCost = 15;
 let clickDoubleCost = 50;
 let clickUpgradeLevel = clickDoubleLevel = 1;
+let resetClicked = false;
+let resetBonus = 1;
 
 const characterGifs = {
   gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
@@ -35,7 +38,7 @@ function incrementMoneyOnClick() {
 }
 
 function increaseMoney() {
-    totRate = gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10 + wizardsCount * 15 + balrogsCount * 25 + ringsCount * 100;
+    totRate = Math.floor((gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10 + wizardsCount * 15 + balrogsCount * 25 + ringsCount * 100)*resetBonus);
     currentMoney += totRate;
     moneyRate.textContent = `Rate: ${totRate}/s`;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
@@ -102,6 +105,21 @@ function doubleClick() {
   }
 }
 
+function resetButtonFunc() {
+  if (resetClicked == false) {
+    resetButton.textContent = `Click again to confirm reset`;
+    alert(`Are you sure you want to reset? You'll recieve a permanent bonus of ${Math.floor(currentMoney/200000)}`);
+    resetClicked = true;
+  } else {
+    resetBonus += (currentMoney/200000);
+    currentMoney = gollumCount = goblinsCount = dwarvesCount = humansCount = orcsCount = elvesCount = wizardsCount = balrogsCount = ringsCount = 0;
+    cm.textContent = `Current Money: ${0}`;
+    resetClicked = false;
+    resetButton.textContent = 'Reset for Permanent Bonus';
+  }
+  return resetBonus;
+}
+
 let gollBtn = document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
 document.querySelector('.goblins-purchase-button').addEventListener('click', updateGoblins);
 document.querySelector('.dwarves-purchase-button').addEventListener('click', updateDwarves);
@@ -114,6 +132,7 @@ document.querySelector('.rings-purchase-button').addEventListener('click', updat
 upgradeClickButton.addEventListener('click', upgradeClick);
 doubleClickButton.addEventListener('click', doubleClick);
 IMB.addEventListener('click', incrementMoneyOnClick);
+resetButton.addEventListener('click', resetButtonFunc);
 
 window.setInterval(increaseMoney, 1000);
 
