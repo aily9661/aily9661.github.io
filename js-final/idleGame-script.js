@@ -43,7 +43,7 @@ const characterGifs = {
 };
 
 function incrementMoneyOnClick() {
-    currentMoney += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus + 10000;
+    currentMoney += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
     clickCount += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
 }
