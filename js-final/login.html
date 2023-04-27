@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        Username:<br> <input id="name" type="text" placeholder="xxxx">
+        <br>
+        Password:<br> <input id="password" type="text" placeholder="1234">
+        <br>
+        <button class="save">Save</button>
+        <button class="restore">Restore</button>
+</body>
+<script>
+    let user = document.getElementById('#name');
+    let pass = document.getElementById('#pass');
+    let save = document.querySelector('.save');
+    let restore = document.querySelector('.restore');
+    let x = 0;
+
+    function loadJson(){
+        fetch('login.json')
+            .then((response) => response.json())
+            .then((json) => jsonCore(json));
+    }
+
+    function jsonCore(file){
+        console.log(file["users"][0]["username"]);
+        console.log(pass);
+        console.log(user);
+    }
+
+    restore.addEventListener('click', loadJson);
+</script>
+</html>
