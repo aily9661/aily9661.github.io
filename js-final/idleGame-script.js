@@ -211,7 +211,7 @@ function background4(){
 
 function background5(){
   if (obtainedBackground5 == false){
-    if (currentMoney >= 0) {
+    if (currentMoney >= 250000) {
       currentMoney -= 250000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence4').textContent = 'Rainbow';
