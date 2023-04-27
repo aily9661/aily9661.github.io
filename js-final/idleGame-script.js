@@ -132,6 +132,11 @@ function resetButtonFunc() {
     cm.textContent = `Current Money: ${0}`;
     resetClicked = false;
     resetButton.textContent = `'Reset for Permanent Bonus'`;
+    clickUpgradeCost = 15;
+    clickDoubleCost = 50;
+    clickUpgradeLevel = clickDoubleLevel = 1;
+    upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
+    doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
     i = 0;
     while (i <= characterArray.length){
       characterElementArray[i].textContent = `${characterArray[i]} (${characterRateArray[i]}/s): 0`;
