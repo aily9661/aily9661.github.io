@@ -43,7 +43,7 @@ const characterGifs = {
 };
 
 function incrementMoneyOnClick() {
-    currentMoney += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
+    currentMoney += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus + 10000;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
     clickCount += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
 }
@@ -104,7 +104,7 @@ function upgradeClick() {
     clickUpgradeLevel+=2;
     clickUpgradeCost *= 4;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`;
+    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;;
     upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
   }
 }
@@ -115,7 +115,7 @@ function doubleClick() {
     clickDoubleLevel*=2;
     clickDoubleCost *= 8;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-    IMB.textContent = `Click for $${0.25*clickUpgradeLevel*clickDoubleLevel}`;
+    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;;
     doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
   }
 }
@@ -126,11 +126,12 @@ function resetButtonFunc() {
     alert(`Are you sure you want to reset? You'll keep your gifs and recieve a permanent multiplier of ${Math.floor(currentMoney/200000)}`);
     resetClicked = true;
   } else {
-    resetBonus += (currentMoney/200000);
+    resetBonus += Math.floor(currentMoney/200000);
+    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;
     currentMoney = gollumCount = goblinsCount = dwarvesCount = humansCount = orcsCount = elvesCount = wizardsCount = balrogsCount = ringsCount = 0;
     cm.textContent = `Current Money: ${0}`;
     resetClicked = false;
-    resetButton.textContent = 'Reset for Permanent Bonus';
+    resetButton.textContent = `'Reset for Permanent Bonus'`;
     i = 0;
     while (i <= characterArray.length){
       characterElementArray[i].textContent = `${characterArray[i]} (${characterRateArray[i]}/s): 0`;
@@ -214,7 +215,7 @@ function background5(){
     if (currentMoney >= 250000) {
       currentMoney -= 250000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-      document.querySelector('#appearence4').textContent = 'Rainbow';
+      document.querySelector('#appearence5').textContent = 'Rainbow';
       obtainedBackground4 == true;
       document.body.style.background = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
       document.body.style.color = 'white';
