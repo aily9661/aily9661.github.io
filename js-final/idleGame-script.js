@@ -19,6 +19,16 @@ let clickDoubleCost = 50;
 let clickUpgradeLevel = clickDoubleLevel = 1;
 let resetClicked = false;
 let resetBonus = 1;
+let characterElementArray = [gollum, goblins, dwarves, humans, orcs, elves, wizards, balrogs, rings];
+let characterArray = ['Gollum', 'Goblins', 'Dwarves', 'Humans', 'Orcs', 'Elves', 'Wizards', 'Balrogs', 'Rings'];
+let characterRateArray = ['0.5', '1', '2', '5', '8', '10', '15', '25', '100'];
+let i = 0;
+let clickCount = 0;
+let obtainedBackground1 = false;
+let obtainedBackground2 = false;
+let obtainedBackground3 = false;
+let obtainedBackground4 = false;
+let obtainedBackground5 = false;
 
 const characterGifs = {
   gollum: 'https://media.tenor.com/_zTvAtDWeEMAAAAM/gollum-thinking.gif',
@@ -33,14 +43,19 @@ const characterGifs = {
 };
 
 function incrementMoneyOnClick() {
-    currentMoney += 0.25*clickUpgradeLevel*clickDoubleLevel;
+    currentMoney += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+    clickCount += (0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus;
+}
+
+function clickReset(){
+  clickCount = 0;
 }
 
 function increaseMoney() {
     totRate = Math.floor((gollumCount * 0.5 + goblinsCount * 1 + dwarvesCount * 2 + humansCount * 5 + orcsCount * 8 + elvesCount * 10 + wizardsCount * 15 + balrogsCount * 25 + ringsCount * 100)*resetBonus);
     currentMoney += totRate;
-    moneyRate.textContent = `Rate: ${totRate}/s`;
+    moneyRate.textContent = `Rate: ${totRate + clickCount}/s Multiplier: x${resetBonus}`;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
 }
 
@@ -108,7 +123,7 @@ function doubleClick() {
 function resetButtonFunc() {
   if (resetClicked == false) {
     resetButton.textContent = `Click again to confirm reset`;
-    alert(`Are you sure you want to reset? You'll recieve a permanent bonus of ${Math.floor(currentMoney/200000)}`);
+    alert(`Are you sure you want to reset? You'll keep your gifs and recieve a permanent multiplier of ${Math.floor(currentMoney/200000)}`);
     resetClicked = true;
   } else {
     resetBonus += (currentMoney/200000);
@@ -116,8 +131,97 @@ function resetButtonFunc() {
     cm.textContent = `Current Money: ${0}`;
     resetClicked = false;
     resetButton.textContent = 'Reset for Permanent Bonus';
+    i = 0;
+    while (i <= characterArray.length){
+      characterElementArray[i].textContent = `${characterArray[i]} (${characterRateArray[i]}/s): 0`;
+      i++;
+    }
   }
-  return resetBonus;
+}
+
+function resetButtonReset(){
+  resetClicked = false;
+  resetButton.textContent = 'Reset for Permanent Bonus';
+}
+
+function background0(){
+  document.body.style.backgroundColor = 'white';
+  document.body.style.color = 'black';
+}
+
+function background1(){
+  if (obtainedBackground1 == false){
+    if (currentMoney >= 5000) {
+      currentMoney -= 5000;
+      cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+      document.querySelector('#appearence1').textContent = 'Green';
+      obtainedBackground1 == true;
+      document.body.style.backgroundColor = 'green';
+      document.body.style.color = 'black';
+    }} else {
+      document.body.style.backgroundColor = 'green';
+      document.body.style.color = 'black';
+    }
+  }
+
+function background2(){
+  if (obtainedBackground2 == false){
+    if (currentMoney >= 15000) {
+      currentMoney -= 15000;
+      cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+      document.querySelector('#appearence2').textContent = 'Dark Mode';
+      obtainedBackground2 == true;
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'white';
+    }} else {
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'white';
+    }
+}
+
+function background3(){
+  if (obtainedBackground3 == false){
+    if (currentMoney >= 50000) {
+      currentMoney -= 50000;
+      cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+      document.querySelector('#appearence3').textContent = 'Melon';
+      obtainedBackground3 == true;
+      document.body.style.backgroundColor = 'rgb(243, 183, 168)';
+      document.body.style.color = 'black';
+    }} else {
+      document.body.style.backgroundColor = 'rgb(243, 183, 168)';
+      document.body.style.color = 'black';
+    }
+}
+
+function background4(){
+  if (obtainedBackground4 == false){
+    if (currentMoney >= 100000) {
+      currentMoney -= 100000;
+      cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+      document.querySelector('#appearence4').textContent = 'Evil';
+      obtainedBackground4 == true;
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'red';
+    }} else {
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'red';
+    }
+}
+
+function background5(){
+  if (obtainedBackground5 == false){
+    if (currentMoney >= 250000) {
+      currentMoney -= 250000;
+      cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
+      document.querySelector('#appearence4').textContent = 'Rainbow';
+      obtainedBackground4 == true;
+      document.body.style.background = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
+      document.body.style.color = 'white';
+    }} else {
+      document.body.style.background = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
+      document.body.style.color = 'white';
+    }
 }
 
 let gollBtn = document.querySelector('.gollum-purchase-button').addEventListener('click', updateGollum);
@@ -133,8 +237,16 @@ upgradeClickButton.addEventListener('click', upgradeClick);
 doubleClickButton.addEventListener('click', doubleClick);
 IMB.addEventListener('click', incrementMoneyOnClick);
 resetButton.addEventListener('click', resetButtonFunc);
+document.querySelector('#appearence0').addEventListener('click', background0);
+document.querySelector('#appearence1').addEventListener('click', background1);
+document.querySelector('#appearence2').addEventListener('click', background2);
+document.querySelector('#appearence3').addEventListener('click', background3);
+document.querySelector('#appearence4').addEventListener('click', background4);
+document.querySelector('#appearence5').addEventListener('click', background5);
 
 window.setInterval(increaseMoney, 1000);
+window.setInterval(clickReset, 1000); 
+window.setInterval(resetButtonReset, 10000); 
 
 /* 
 Inspiration I took:
