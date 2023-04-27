@@ -145,7 +145,7 @@ function resetButtonReset(){
 }
 
 function background0(){
-  document.body.style.backgroundColor = 'white';
+  document.body.style.background = 'white';
   document.body.style.color = 'black';
 }
 
@@ -156,10 +156,10 @@ function background1(){
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence1').textContent = 'Green';
       obtainedBackground1 == true;
-      document.body.style.backgroundColor = 'green';
+      document.body.style.background = 'green';
       document.body.style.color = 'black';
     }} else {
-      document.body.style.backgroundColor = 'green';
+      document.body.style.background = 'green';
       document.body.style.color = 'black';
     }
   }
@@ -171,10 +171,10 @@ function background2(){
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence2').textContent = 'Dark Mode';
       obtainedBackground2 == true;
-      document.body.style.backgroundColor = 'black';
+      document.body.style.background = 'black';
       document.body.style.color = 'white';
     }} else {
-      document.body.style.backgroundColor = 'black';
+      document.body.style.background = 'black';
       document.body.style.color = 'white';
     }
 }
@@ -186,10 +186,10 @@ function background3(){
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence3').textContent = 'Melon';
       obtainedBackground3 == true;
-      document.body.style.backgroundColor = 'rgb(243, 183, 168)';
+      document.body.style.background = 'rgb(243, 183, 168)';
       document.body.style.color = 'black';
     }} else {
-      document.body.style.backgroundColor = 'rgb(243, 183, 168)';
+      document.body.style.background = 'rgb(243, 183, 168)';
       document.body.style.color = 'black';
     }
 }
@@ -201,17 +201,17 @@ function background4(){
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence4').textContent = 'Evil';
       obtainedBackground4 == true;
-      document.body.style.backgroundColor = 'black';
+      document.body.style.background = 'black';
       document.body.style.color = 'red';
     }} else {
-      document.body.style.backgroundColor = 'black';
+      document.body.style.background = 'black';
       document.body.style.color = 'red';
     }
 }
 
 function background5(){
   if (obtainedBackground5 == false){
-    if (currentMoney >= 250000) {
+    if (currentMoney >= 0) {
       currentMoney -= 250000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence4').textContent = 'Rainbow';
