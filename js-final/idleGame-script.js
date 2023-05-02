@@ -115,7 +115,7 @@ function doubleClick() {
     clickDoubleLevel*=2;
     clickDoubleCost *= 8;
     cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
-    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;;
+    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;
     doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
   }
 }
@@ -127,7 +127,6 @@ function resetButtonFunc() {
     resetClicked = true;
   } else {
     resetBonus += Math.floor(currentMoney/200000);
-    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;
     currentMoney = gollumCount = goblinsCount = dwarvesCount = humansCount = orcsCount = elvesCount = wizardsCount = balrogsCount = ringsCount = 0;
     cm.textContent = `Current Money: ${0}`;
     resetClicked = false;
@@ -135,6 +134,7 @@ function resetButtonFunc() {
     clickUpgradeCost = 15;
     clickDoubleCost = 50;
     clickUpgradeLevel = clickDoubleLevel = 1;
+    IMB.textContent = `$${(0.25*clickUpgradeLevel*clickDoubleLevel)*resetBonus}`;
     upgradeClickButton.textContent = `Upgrade Click $${clickUpgradeCost}`;
     doubleClickButton.textContent = `Double Click $${clickDoubleCost}`;
     i = 0;
@@ -221,7 +221,7 @@ function background5(){
       currentMoney -= 250000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence5').textContent = 'Rainbow';
-      obtainedBackground4 == true;
+      obtainedBackground5 == true;
       document.body.style.background = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
       document.body.style.color = 'white';
     }} else {
