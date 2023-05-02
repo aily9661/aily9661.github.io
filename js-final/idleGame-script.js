@@ -161,7 +161,7 @@ function background1(){
       currentMoney -= 5000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence1').textContent = 'Green';
-      obtainedBackground1 == true;
+      obtainedBackground1 = true;
       document.body.style.background = 'green';
       document.body.style.color = 'black';
     }} else {
@@ -176,7 +176,7 @@ function background2(){
       currentMoney -= 15000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence2').textContent = 'Dark Mode';
-      obtainedBackground2 == true;
+      obtainedBackground2 = true;
       document.body.style.background = 'black';
       document.body.style.color = 'white';
     }} else {
@@ -191,7 +191,7 @@ function background3(){
       currentMoney -= 50000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence3').textContent = 'Melon';
-      obtainedBackground3 == true;
+      obtainedBackground3 = true;
       document.body.style.background = 'rgb(243, 183, 168)';
       document.body.style.color = 'black';
     }} else {
@@ -206,7 +206,7 @@ function background4(){
       currentMoney -= 100000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence4').textContent = 'Evil';
-      obtainedBackground4 == true;
+      obtainedBackground4 = true;
       document.body.style.background = 'black';
       document.body.style.color = 'red';
     }} else {
@@ -221,7 +221,7 @@ function background5(){
       currentMoney -= 250000;
       cm.textContent = `Current Money: ${currentMoney.toFixed(2)}`;
       document.querySelector('#appearence5').textContent = 'Rainbow';
-      obtainedBackground5 == true;
+      obtainedBackground5 = true;
       document.body.style.background = 'linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)';
       document.body.style.color = 'white';
     }} else {
